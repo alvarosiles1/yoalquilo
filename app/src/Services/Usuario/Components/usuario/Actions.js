@@ -42,7 +42,7 @@ export default class Actions {
                 type: "getAll",
                 estado: "cargando",
                 key_usuario: "",
-                cabecera: "usuario_app"
+                cabecera: "registro"
             })
             return null;
         }
@@ -63,7 +63,7 @@ export default class Actions {
             type: "registro",
             estado: "cargando",
             key_usuario: "",
-            cabecera: "usuario_app",
+            cabecera: "registro",
             data: data
         })
     }
@@ -75,7 +75,7 @@ export default class Actions {
             type: "editar",
             estado: "cargando",
             key_usuario: "",
-            cabecera: "usuario_app",
+            cabecera: "registro",
             data: data
         })
     }
@@ -87,7 +87,7 @@ export default class Actions {
             type: "editar",
             estado: "cargando",
             key_usuario: "",
-            cabecera: "usuario_app",
+            cabecera: "registro",
             data: {
                 ...data,
                 estado: 0,

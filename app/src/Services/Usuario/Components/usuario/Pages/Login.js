@@ -75,11 +75,9 @@ class Login extends Component {
                         <SView height={32} />
                         {this.getForm()}
                         <SView height={16} />
-
                         <SView col={"xs-12"} flex height style={{ alignItems: "flex-end" }}>
                             <SText fontSize={14} color={STheme.color.lightBlack} font={"LondonMM"} onPress={() => { SNavigation.navigate(Parent.component + '/recuperarContrasena'); }}>¿Olvidaste tu email o contraseña?</SText>
                         </SView>
-
                         <SView height={30} />
                         <SView col={"xs-11"} row center>
                             <SButtom onPress={() => {

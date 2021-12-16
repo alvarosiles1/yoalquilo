@@ -19,16 +19,18 @@ class Registro extends Component {
         return <SForm
             ref={(form) => { this.form = form; }}
             col={"xs-11 sm-9 md-7 lg-5 xl-4"}
+            center
             inputProps={{
                 customStyle: "kolping",
             }}
             inputs={{
-                foto_p: { type: "image", isRequired: false, defaultValue: `${SSocket.api.root}${Parent.component}/${this.key}` },
-                Nombres: { label: "Nombres", isRequired: true, defaultValue: this.usr.Nombres, icon: <SIcon name={"InputUser"} width={40} height={30} /> },
-                Apellidos: { label: "Apellidos", isRequired: true, defaultValue: this.usr.Apellidos, icon: <SIcon name={"InputUser"} width={40} height={30} /> },
-                Correo: { label: "Correo", isRequired: true, defaultValue: this.usr.Correo, icon: <SIcon name={"InputEmail"} width={40} height={30} /> },
-                Password: { label: "Password", isRequired: true, type: "password", defaultValue: this.usr.Password, icon: <SIcon name={"InputPassword"} width={40} height={30} /> },
-                RepPassword: { label: "Repetir password", type: "password", isRequired: true, defaultValue: this.usr.Password, icon: <SIcon name={"InputRePassword"} width={40} height={30} /> },
+                foto_p: { type: "image", isRequired: false, defaultValue: `${SSocket.api.root}${Parent.component}/${this.key}`,col:"xs-3" },
+                Nombres: { label: "Nombres", isRequired: true, defaultValue: this.usr.Nombres, },
+                Apellidos: { label: "Apellidos", isRequired: true, defaultValue: this.usr.Apellidos, },
+                Telefono: { label: "Telefono", type: "phone", isRequired: true, defaultValue: this.usr.Correo, },
+                Correo: { label: "Correo", isRequired: true, defaultValue: this.usr.Correo, },
+                Password: { label: "Password", isRequired: true, type: "password", defaultValue: this.usr.Password, },
+                RepPassword: { label: "Repetir password", type: "password", isRequired: true, defaultValue: this.usr.Password, },
             }}
             onSubmit={(values) => {
                 if (this.key) {

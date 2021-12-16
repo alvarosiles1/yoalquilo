@@ -9,9 +9,9 @@ import Servicios from './Servicios';
 import Page from './Page';
 
 const Pages: SPageListProps = {
-    "inicio": InicioPage,
+    "/": InicioPage,
     "carga": CargaPage,
-    AjustesPage,
+    "ajustes":AjustesPage,
     ...Services.Pages,
     ...Servicios.Pages,
     ...Page.Pages,

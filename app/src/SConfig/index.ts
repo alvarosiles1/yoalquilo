@@ -7,7 +7,7 @@ const SThemeProps: SThemeThemes = {
         primary: "#ffffff",
         secondary: "#000000",
         background: "#cccccc",
-        card: "#00000066",
+        card: "#00000044",
 
     },
     dark: {
@@ -16,20 +16,20 @@ const SThemeProps: SThemeThemes = {
         primary: "#000000",
         secondary: "#ffffff",
         background: "#222222",
-        card: "#00000066",
+        card: "#ffffff44",
     }
 }
 
 const SocketProps: SSocketProps = {
-    name: 'contabilidad',
-    host: '192.168.0.199',
+    name: 'yoalquilo',
+    host: 'alvaro.ss.lo',
     port: {
-        native: 10011,
-        web: 20011,
-        http: 30011,
+        native: 10022,
+        web: 20022,
+        http: 30022,
     },
     ssl: false,
-    cert: "MIID0DCCArigAwIBAgIEYUpp/TANBgkqhkiG9w0BAQsFADCBqTELMAkGA1UEBhMCQk8xEjAQBgNVBAgMCUF2IEJhbnplcjETMBEGA1UEBwwKU2FudGEgQ3J1ejEXMBUGA1UECgwOU2Vydmlzb2Z0cyBTUkwxDzANBgNVBAsMBmJhdGVvbjEeMBwGA1UEAwwVYmF0ZW9uLnNlcnZpc29mdHMuY29tMScwJQYJKoZIhvcNAQkBFhhyaWNreS5wYXouZC45N0BnbWFpbC5jb20wHhcNMjEwOTIxMjMyNTQ5WhcNMjEwOTIyMjMyNTQ5WjCBqTELMAkGA1UEBhMCQk8xEjAQBgNVBAgMCUF2IEJhbnplcjETMBEGA1UEBwwKU2FudGEgQ3J1ejEXMBUGA1UECgwOU2Vydmlzb2Z0cyBTUkwxDzANBgNVBAsMBmJhdGVvbjEeMBwGA1UEAwwVYmF0ZW9uLnNlcnZpc29mdHMuY29tMScwJQYJKoZIhvcNAQkBFhhyaWNreS5wYXouZC45N0BnbWFpbC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCyN4KWQKCFn0Y0e4ONqgDSRnaNGqC9A8Y1ehptdKSlkWLfFJEHeHwE/fdlRnIEDG3XLkjQAehiTCkyH16cw69EuLAn1bAXjjODIMxWZA/oGyKurfwobCw7asBxXnHGwsWELorSKm5ZK1aeMBaLHiXSIjCJr+KlreHQAOKuy0BAOSXJ92DUdxo7fqgB0DhyA/sB/R9J0ofmnmCR62v22Qn2YsRObVp/0k1ggWaxYriDxhwOk0ajOVaP1QpJgFv8SQSagYksP19XIq5dE2e+7k175lBHEDfLyZinhava9dvguAtOXd5xzVabbDjolaMeeDoZ8RwzpRX2Ga+1Y9BZoVQrAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAAWNco7JrXTw68kl0rnvOLOZZ+djO8Z7P/6WVbytrRV8S4QGZ4NM/t7BikpIhK6IFzulNEhV61MQ0Jy2bnBnzNvLLugnGRqH4JTwgITkGiA5dvawMucXLy+tFQ5ccSM7I/24ITCr52Qriy7WQV6KJkY2O4gvukDISeUPsl/e9NA2EZUgywa/vY3NXnwCYiIOMaoGcX7Yykj0i9lAnUSpaG+IhS7YKTbV5V8Ii1SImbRfpVbIGk2wj7Set2s4w5XtgYTOz7o5TcB9MWlOLp9eLXg9W5LAdPQG6633wlb49Wf91DhhVGmVJmYFtsGAd2TAXmosg3FasLYGd9kpzVzAyUk=",
+    cert: "MIID3DCCAsSgAwIBAgIEYZWv2TANBgkqhkiG9w0BAQsFADCBrzELMAkGA1UEBhMCQk8xEjAQBgNVBAgMCUF2IEJhbnplcjETMBEGA1UEBwwKU2FudGEgQ3J1ejEXMBUGA1UECgwOU2Vydmlzb2Z0cyBTUkwxEjAQBgNVBAsMCXlvYWxxdWlsbzEhMB8GA1UEAwwYeW9hbHF1aWxvLnNlcnZpc29mdHMuY29tMScwJQYJKoZIhvcNAQkBFhhyaWNreS5wYXouZC45N0BnbWFpbC5jb20wHhcNMjExMTE4MDE0MzUzWhcNMjExMTE5MDE0MzU0WjCBrzELMAkGA1UEBhMCQk8xEjAQBgNVBAgMCUF2IEJhbnplcjETMBEGA1UEBwwKU2FudGEgQ3J1ejEXMBUGA1UECgwOU2Vydmlzb2Z0cyBTUkwxEjAQBgNVBAsMCXlvYWxxdWlsbzEhMB8GA1UEAwwYeW9hbHF1aWxvLnNlcnZpc29mdHMuY29tMScwJQYJKoZIhvcNAQkBFhhyaWNreS5wYXouZC45N0BnbWFpbC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDMHxngzJGSb8fAH2moI19zBPJKg16VPqfcF3dhW/kYnRDvTBvMaEh2WDEDmeJeMkE/2h1ei/B0Z8ST5rrivJJ0jMcIU54CVLqE3HLGMD6HlmVMJlOlpqadrg+OfODkA3xplijK0bNLfK5m1WMO4rHsz1rvZXr5z+Vycpi1HXmgb9Fd2p8Lrjx9yFT/YYTOjR5kJ1bQVKPgcM6BRbIk4iNcc1Rer5ER/QxBcE9GfKzgheVlR36NKDlZr7U/mR+gitXgvOGXE4nZG/XQrvSoCe3SmruG3gmKgJbgtVjUSrDLi1ZhC4vFQ4HAoWlmHvX2bVlL54YBKBcPztd5NzjtcEqJAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAA8ANLFzqL0fCsybB/7tYtDU2dgI4rylRGGkQ4/fchqtxUhnkvIec2QHzn4jXTbh/Fw7sQ2CX/t9kIVpXg34YrCQrA4NEwywmjOcBVpr12Ddx0yik3qNjqlm+YD0vhaiNe8deny8puda1VF4Fs5YpCtbSrlFHTHeNCNy6fVVRlt38aYikzkM0bXBMx+HMOyRcblGbYliiNHw4CYr6egtTHTjl3b0F/CrvhuVrv9MYcf6gqVvEWFiMAWF7yrGurj75iI/PzXKDcLuSd8O2gREw39U6FNrKMBLJ1ZObioEhQK8QVRzP9cixLLCWuXHYfxWtkLx+7/1f2UZsAUUsZJepTc=",
     apis: {
         servicio:"http://servicio.ss.lo/http/"
         // rp: "http://192.168.0.21:30016/"

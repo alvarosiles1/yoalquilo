@@ -6,6 +6,7 @@ import SSocket from 'servisofts-socket';
 import BarraSuperior from '../../Components/BarraSuperior';
 import BotonesPaginas from '../../Components/BotonesPaginas';
 import NavBar from '../../Components/NavBar';
+import Usuario from '../../Services/Usuario/Components/usuario';
 // import { SSRolesPermisosGetPages, SSRolesPermisosValidate } from '../../SSRolesPermisos';
 
 // import Usuario from '../Usuario';
@@ -17,7 +18,7 @@ class InicioPage extends Component {
         };
     }
     getPaginas() {
-        var pages =[]
+        var pages = []
         if (!pages) {
             return <SLoad />
         }
@@ -54,13 +55,12 @@ class InicioPage extends Component {
 
         });
     }
-    
+
 
     render() {
-        // if (!Usuario.Actions.getUsuarioLogueado(this.props)) {
-        //     SNavigation.replace("carga");
-        //     return null;
-        // }
+        if (!Usuario.Actions.validateSession(this.props)) {
+            return null;
+        }
         var source = require("./Images/catalogo.png");
         var camisa = require("./Images/camisa.jpg");
         return (
@@ -68,11 +68,13 @@ class InicioPage extends Component {
                 title="Inicio"
             >
                 <SView col={"xs-12"} row center >
-                        {/* {this.getPaginas()} */}
+                    {/* {this.getPaginas()} */}
                 </SView>
 
                 <BotonesPaginas data={[
                     { label: "Servicios", url: "servicios", icon: "Servisofts" },
+                    { label: "Usuarios", url: "usuario", icon: "Usuarios_all" },
+                    { label: "Ajustes", url: "ajustes", icon: "Ajustes" },
                 ]} />
             </SPage>
         );

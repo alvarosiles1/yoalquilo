@@ -1,6 +1,6 @@
 import { SPageListProps } from 'servisofts-component'
 
-const ServiceName = "contabilidad";
+const ServiceName = "yoalquilo";
 
 
 import empresa from './Components/empresa';
