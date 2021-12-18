@@ -1,6 +1,5 @@
 import SSocket from 'servisofts-socket';
 import Parent from './index';
-import Service from '../../index';
 
 export default class Actions {
 
@@ -8,16 +7,17 @@ export default class Actions {
         return props.state[Parent.component + "Reducer"];
     }
 
-    // static resetEstado = (props) => {
-    //     var reducer = Actions._getReducer(props);
-    //     reducer.estado = "";
-    // }
-    // static getEstado = (type, props) => {
-    //     var reducer = Actions._getReducer(props);
-    //     if (!type) return reducer.estado;
-    //     if (type == reducer.type) return reducer.estado;
-    //     return "";
-    // }
+    static resetEstado = (props) => {
+        var reducer = Actions._getReducer(props);
+        reducer.estado = "";
+    }
+
+    static getEstado = (type, props) => {
+        var reducer = Actions._getReducer(props);
+        if (!type) return reducer.estado;
+        if (type == reducer.type) return reducer.estado;
+        return "";
+    }
 
     static getAll = (props) => {
         var reducer = Actions._getReducer(props);
@@ -52,6 +52,7 @@ export default class Actions {
             data: data
         })
     }
+
     static editar = (data, props) => {
         SSocket.send({
             component: Parent.component,
@@ -62,6 +63,7 @@ export default class Actions {
             data: data
         })
     }
+
     static eliminar = (data, props) => {
         SSocket.send({
             component: Parent.component,
@@ -69,10 +71,7 @@ export default class Actions {
             type: "editar",
             estado: "cargando",
             key_usuario: "",
-            data: {
-                ...data,
-                estado: 0,
-            }
+            data: { ...data, estado: 0 }
         })
     }
 }

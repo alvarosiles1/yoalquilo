@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SButtom, SForm, SHr, SPage, SText, SNavigation, SLoad, SView, SIcon } from 'servisofts-component';
+import { SForm, SHr, SPage, SNavigation, SLoad, SView } from 'servisofts-component';
 import Parent from '../index'
-import SSocket from 'servisofts-socket';
+
 class Registro extends Component {
+
     constructor(props) {
         super(props);
-        this.state = { };
-        this.key_servicio = SNavigation.getParam("key_servicio");
+        this.state = {};
         this.key = SNavigation.getParam("key");
     }
+
     getContent() {
         this.data = {};
         if (this.key) {
@@ -23,11 +24,12 @@ class Registro extends Component {
                 customStyle: "calistenia"
             }}
             inputs={{
-
-
-                foto_empresa: { label: "foto_empresa", isRequired: true, defaultValue: this.data["foto_empresa"] },
-                nombre: { label: "nombre", isRequired: true, defaultValue: this.data["nombre"] },
+                key_empresa: { label: "key_empresa", isRequired: true, defaultValue: this.data["key_empresa"] },
+                key_usuario: { label: "key_usuario", isRequired: true, defaultValue: this.data["key_usuario"] },
+                descripcion: { label: "descripcion", isRequired: true, defaultValue: this.data["descripcion"] },
+                direccion: { label: "direccion", isRequired: true, defaultValue: this.data["direccion"] },
             }}
+            onSubmitName={(this.key ? "Aceptar" : "Registrar")}
             onSubmit={(values) => {
                 if (this.key) {
                     Parent.Actions.editar({
@@ -35,35 +37,30 @@ class Registro extends Component {
                         ...values
                     }, this.props);
                 } else {
-                    values.key_servicio = this.key_servicio;
                     Parent.Actions.registro(values, this.props);
                 }
             }}
         />
     }
+
     render() {
-        // if (Parent.Actions.getEstado("registro", this.props) == "exito" || Parent.Actions.getEstado("editar", this.props) == "exito") {
-        //     Parent.Actions.resetEstado(this.props);
-        //     // this.form.uploadFiles(`${SSocket.api.root}upload/${Parent.component}/${this.key}`);
-        //     SNavigation.goBack();
-        // }
+        if (Parent.Actions.getEstado("registro", this.props) == "exito" || Parent.Actions.getEstado("editar", this.props) == "exito") {
+            Parent.Actions.resetEstado(this.props);
+            SNavigation.goBack();
+        }
         return (
             <SPage title={'Registro de ' + Parent.component} center>
                 <SView height={30}></SView>
                 {this.getContent()}
                 <SHr />
-                <SButtom
-                    style={{ color: '#fff' }}
-                    props={{
-                        type: "outline"
-                    }}
-                    onPress={() => { this.form.submit() }}
-                >{(this.key ? "Editar" : "Registrar")}</SButtom>
             </SPage>
         );
     }
+    
 }
+
 const initStates = (state) => {
     return { state }
 };
+
 export default connect(initStates)(Registro);

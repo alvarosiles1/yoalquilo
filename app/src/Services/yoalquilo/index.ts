@@ -4,12 +4,18 @@ const ServiceName = "yoalquilo";
 
 
 import empresa from './Components/empresa';
+import sucursal from './Components/sucursal';
 const Pages: SPageListProps = {
-    ...empresa.Pages
+    ...empresa.Pages,
+    ...sucursal.Pages
+
 }
 
 const Reducers = {
-    ...empresa.Reducers
+    ...empresa.Reducers,
+    ...sucursal.Reducers
+
+
 }
 
 export default {
