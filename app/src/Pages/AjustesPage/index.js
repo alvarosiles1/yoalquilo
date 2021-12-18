@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
-import { SIcon, SPage, SText, STheme, SView } from 'servisofts-component'
+import { SButtom, SIcon, SPage, SText, STheme, SView, SNavigation } from 'servisofts-component'
+import Usuario from '../../Services/Usuario'
 import PerfilUsuario from './PerfilUsuario'
 
 export default class AjustesPage extends Component {
@@ -41,7 +42,23 @@ export default class AjustesPage extends Component {
             </SView>
         </SView>
     }
+
+    logout() {
+        return <SButtom props={{ type: "danger" }} onPress={() => {
+            this.props.dispatch({ type: "USUARIO_LOGOUT" });
+            SNavigation.replace("carga");
+        }}>Logout</SButtom>
+    }
+
     render() {
+        if (!usuario.Actions.validateSession(this.props, true)) {
+            SNavigation.replace("login");
+        } else {
+            SNavigation.replace('/');
+        }
+
+ 
+
         return (
             <SPage
                 title={"Ajustes"}
@@ -70,6 +87,10 @@ export default class AjustesPage extends Component {
                             {this.getOptions({ title: "Carrito", icon: "Carrito" })}
                             {this.getOptions({ title: "Ajustes", icon: "Ajustes" })}
                             {this.getOptions({ title: "Caja", icon: "Caja" }, true)}
+
+
+                            <SText>Cerrar sesion</SText>
+                            {this.logout()}
                         </SView>
                     </SView>
                 </SView>

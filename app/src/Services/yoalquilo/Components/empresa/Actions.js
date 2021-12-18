@@ -3,20 +3,21 @@ import Parent from './index';
 import Service from '../../index';
 
 export default class Actions {
+
     static _getReducer = (props) => {
         return props.state[Parent.component + "Reducer"];
     }
 
-    static resetEstado = (props) => {
-        var reducer = Actions._getReducer(props);
-        reducer.estado = "";
-    }
-    static getEstado = (type, props) => {
-        var reducer = Actions._getReducer(props);
-        if (!type) return reducer.estado;
-        if (type == reducer.type) return reducer.estado;
-        return "";
-    }
+    // static resetEstado = (props) => {
+    //     var reducer = Actions._getReducer(props);
+    //     reducer.estado = "";
+    // }
+    // static getEstado = (type, props) => {
+    //     var reducer = Actions._getReducer(props);
+    //     if (!type) return reducer.estado;
+    //     if (type == reducer.type) return reducer.estado;
+    //     return "";
+    // }
 
     static getAll = (props) => {
         var reducer = Actions._getReducer(props);
@@ -35,11 +36,11 @@ export default class Actions {
         return data;
     }
 
-    static getByKey = (key, props) => {
-        var data = Actions.getAll(props);
-        if (!data) return null;
-        return data[key];
-    }
+    // static getByKey = (key, props) => {
+    //     var data = Actions.getAll(props);
+    //     if (!data) return null;
+    //     return data[key];
+    // }
 
     static registro = (data, props) => {
         SSocket.send({

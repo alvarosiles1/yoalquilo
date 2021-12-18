@@ -2,6 +2,7 @@ import java.io.Console;
 import org.json.JSONObject;
 import Server.SSSAbstract.SSSessionAbstract;
 import Servisofts.SConsole;
+import component.cliente;
 import component.empresa;
 import component.servicio;
 import component.subordinado;
@@ -23,12 +24,15 @@ public class Manejador {
                     new sucursal(obj, session);
                     break;
 
-                case "servicio":
+                case "servicioyhabitacion":
                     new servicio(obj, session);
                     break;
 
                 case "subordinado":
                     new subordinado(obj, session);
+                    break;
+                case "cliente":
+                    new cliente(obj, session);
                     break;
 
             }

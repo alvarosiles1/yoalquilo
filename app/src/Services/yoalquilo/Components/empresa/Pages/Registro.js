@@ -24,9 +24,10 @@ class Registro extends Component {
                 customStyle: "calistenia"
             }}
             inputs={{
-                foto_p: { type: "image", isRequired: false, defaultValue: `${SSocket.api.root}${Parent.component}/${this.key}` },
-                nit: { label: "nit", isRequired: true, defaultValue: this.data["nit"] },
-                razon_social: { label: "Razon social", isRequired: true, defaultValue: this.data["razon_social"] },
+
+
+                foto_empresa: { label: "foto_empresa", isRequired: true, defaultValue: this.data["foto_empresa"] },
+                nombre: { label: "nombre", isRequired: true, defaultValue: this.data["nombre"] },
             }}
             onSubmit={(values) => {
                 if (this.key) {
@@ -42,11 +43,11 @@ class Registro extends Component {
         />
     }
     render() {
-        if (Parent.Actions.getEstado("registro", this.props) == "exito" || Parent.Actions.getEstado("editar", this.props) == "exito") {
-            Parent.Actions.resetEstado(this.props);
-            this.form.uploadFiles(`${SSocket.api.root}upload/${Parent.component}/${this.key}`);
-            SNavigation.goBack();
-        }
+        // if (Parent.Actions.getEstado("registro", this.props) == "exito" || Parent.Actions.getEstado("editar", this.props) == "exito") {
+        //     Parent.Actions.resetEstado(this.props);
+        //     this.form.uploadFiles(`${SSocket.api.root}upload/${Parent.component}/${this.key}`);
+        //     SNavigation.goBack();
+        // }
         return (
             <SPage title={'Registro de ' + Parent.component} center>
                 <SView height={30}></SView>
