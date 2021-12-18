@@ -63,12 +63,8 @@ class InicioPage extends Component {
         // if (!usuario.Actions.validateSession(this.props)) {
         //     return <SLoad />
         // }
-
-        // var source = require("./Images/catalogo.png");
-        // var camisa = require("./Images/camisa.jpg");
         return (
-            <SPage
-                title="Inicio"
+            <SPage  title="Inicio"
             >
                 <SView col={"xs-12"} row center >
                     {/* {this.getPaginas()} */}
@@ -81,6 +77,8 @@ class InicioPage extends Component {
                     { label: "empresa", url: "empresa", icon: "Usuarios_all" },
                     { label: "sucursal", url: "sucursal", icon: "Ajustes" },
                     { label: "clientes", url: "cliente", icon: "Usuarios_all" },
+                    { label: "Servicios", url: "servicio", icon: "Ajustes" },
+
 
                 ]} />
             </SPage>

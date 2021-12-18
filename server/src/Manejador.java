@@ -24,7 +24,7 @@ public class Manejador {
                     new sucursal(obj, session);
                     break;
 
-                case "servicioyhabitacion":
+                case "servicio":
                     new servicio(obj, session);
                     break;
 
