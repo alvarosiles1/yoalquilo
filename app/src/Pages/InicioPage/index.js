@@ -80,6 +80,7 @@ class InicioPage extends Component {
                     { label: "Ajustes", url: "ajustes", icon: "Ajustes" },
                     { label: "empresa", url: "empresa", icon: "Usuarios_all" },
                     { label: "sucursal", url: "sucursal", icon: "Ajustes" },
+                    { label: "clientes", url: "cliente", icon: "Usuarios_all" },
 
                 ]} />
             </SPage>

@@ -1,4 +1,4 @@
-const component = "sucursal"; // no te olvides de cambiar ******************************************
+const component = "cliente"; // no te olvides de cambiar ******************************************
 const version = "1.0";
 // ---------------------------------------
 import Actions from "./Actions";

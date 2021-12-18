@@ -24,10 +24,18 @@ class Registro extends Component {
                 customStyle: "calistenia"
             }}
             inputs={{
+                ci: { label: "ci", isRequired: true, defaultValue: this.data["ci"] },
+                alias: { label: "alias", isRequired: true, defaultValue: this.data["alias"] },
+                nombres: { label: "nombres", isRequired: true, defaultValue: this.data["nombres"] },
+                apellidos: { label: "apellidos", isRequired: true, defaultValue: this.data["apellidos"] },
+                contacto: { label: "contacto", isRequired: true, defaultValue: this.data["contacto"] },
+                telefono: { label: "telefono", isRequired: true, defaultValue: this.data["telefono"] },
+                foto_documento_frontal: { label: "foto_documento_frontal", isRequired: true, defaultValue: this.data["foto_documento_frontal"] },
+                foto_documento_reverso: { label: "foto_documento_reverso", isRequired: true, defaultValue: this.data["foto_documento_reverso"] },
                 key_empresa: { label: "key_empresa", isRequired: true, defaultValue: this.data["key_empresa"] },
+                key_pais: { label: "key_pais", isRequired: true, defaultValue: this.data["key_pais"] },
                 key_usuario: { label: "key_usuario", isRequired: true, defaultValue: this.data["key_usuario"] },
-                descripcion: { label: "descripcion", isRequired: true, defaultValue: this.data["descripcion"] },
-                direccion: { label: "direccion", isRequired: true, defaultValue: this.data["direccion"] },
+
             }}
             onSubmitName={(this.key ? "Aceptar" : "Registrar")}
             onSubmit={(values) => {
@@ -56,7 +64,7 @@ class Registro extends Component {
             </SPage>
         );
     }
-    
+
 }
 
 const initStates = (state) => {

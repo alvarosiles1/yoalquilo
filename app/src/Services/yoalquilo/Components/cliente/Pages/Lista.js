@@ -17,10 +17,20 @@ class Lista extends Component {
         return <STable2
             header={[
                 { key: "index", label: "#", width: 50 },
+                { key: "ci", label: "ci", width: 150 },
+                { key: "alias", label: "alias", width: 150 },
+                { key: "nombres", label: "nombres", width: 150 },
+                { key: "apellidos", label: "apellidos", width: 150 },
+                
+                { key: "contacto", label: "contacto", width: 150 },
+                { key: "telefono", label: "telefono", width: 150 },
+                { key: "foto_documento_frontal", label: "foto_documento_frontal", width: 150 },
+                { key: "foto_documento_reverso", label: "foto_documento_reverso", width: 150 },
                 { key: "key_empresa", label: "key_empresa", width: 150 },
+                { key: "key_pais", label: "key_pais", width: 150 },
                 { key: "key_usuario", label: "key_usuario", width: 150 },
-                { key: "descripcion", label: "descripcion", width: 150 },
-                { key: "direccion", label: "direccion", width: 150 },
+
+                
                 { key: "key-editar", label: "Editar", width: 50, center: true, component: (item) => { return <SView onPress={() => { SNavigation.navigate(Parent.component + "/registro", { key: item }) }}> <SIcon name={"Edit"} width={35} /></SView> } },
                 { key: "key-eliminar", label: "Eliminar", width: 70, center: true, component: (key) => { return <SView width={35} height={35} onPress={() => { SPopup.confirm({ title: "Eliminar", message: "¿Esta seguro de eliminar?", onPress: () => { Parent.Actions.eliminar(data[key], this.props) } }) }}> <SIcon name={'Delete'} /> </SView> } },
             ]}
