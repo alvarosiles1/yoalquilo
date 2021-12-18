@@ -58,20 +58,20 @@ class InicioPage extends Component {
 
 
     render() {
- 
-   
+
+
         // if (!usuario.Actions.validateSession(this.props)) {
         //     return <SLoad />
         // }
         return (
-            <SPage  title="Inicio"
+            <SPage title="Inicio"
             >
                 <SView col={"xs-12"} row center >
                     {/* {this.getPaginas()} */}
                 </SView>
 
                 <BotonesPaginas data={[
-                    { label: "Servicios", url: "servicios", icon: "Servisofts" },
+                    // { label: "Servicios", url: "servicios", icon: "Servisofts" },
                     { label: "Usuarios", url: "usuario", icon: "Usuarios_all" },
                     { label: "Ajustes", url: "ajustes", icon: "Ajustes" },
                     { label: "empresa", url: "empresa", icon: "Usuarios_all" },

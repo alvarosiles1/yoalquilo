@@ -15,7 +15,7 @@ const Reducers = {
 
 
 export default {
-    name: "servicio",
+    name: "servicios",
     Pages,
     Actions,
     Reducers

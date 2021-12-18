@@ -10,12 +10,14 @@ export default class Actions {
     static validateSession(props, preventRedirect) {
         var reducer = Actions._getReducer(props);
         var data = reducer.usuarioLog;
-        if (!data) {
-            if (preventRedirect) return null;
-            SNavigation.replace("carga");
-            return null;
+        if (data) {
+            if (data.key) {
+                return data;
+            }
         }
-        return data;
+        if (preventRedirect) return null;
+        SNavigation.replace("carga");
+        return null;
 
     }
     static login(data) {
@@ -24,6 +26,18 @@ export default class Actions {
             component: "usuario",
             version: "2.0",
             type: "login",
+            estado: "cargando",
+            data: data,
+        }
+        // alert(JSON.stringify(object));
+        SSocket.send(object);
+    }
+    static loginGoogle(data) {
+        var object = {
+            service: Service.ServiceName,
+            component: "usuario",
+            version: "2.0",
+            type: "loginGmail",
             estado: "cargando",
             data: data,
         }

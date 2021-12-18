@@ -3,8 +3,9 @@ import { Text, View } from 'react-native'
 import { SButtom, SIcon, SPage, SText, STheme, SView, SNavigation } from 'servisofts-component'
 import Usuario from '../../Services/Usuario'
 import PerfilUsuario from './PerfilUsuario'
+import { connect } from 'react-redux';
 
-export default class AjustesPage extends Component {
+class AjustesPage extends Component {
     static navigationOptions = {
         headerShown: false,
     }
@@ -45,19 +46,23 @@ export default class AjustesPage extends Component {
 
     logout() {
         return <SButtom props={{ type: "danger" }} onPress={() => {
+
             this.props.dispatch({ type: "USUARIO_LOGOUT" });
             SNavigation.replace("carga");
+            // this.fadeOut();
+
+
         }}>Logout</SButtom>
     }
 
     render() {
-        if (!usuario.Actions.validateSession(this.props, true)) {
-            SNavigation.replace("login");
-        } else {
-            SNavigation.replace('/');
-        }
+        // if (!usuario.Actions.validateSession(this.props, true)) {
+        //     SNavigation.replace("login");
+        // } else {
+        //     SNavigation.replace('/');
+        // }
 
- 
+
 
         return (
             <SPage
@@ -98,3 +103,8 @@ export default class AjustesPage extends Component {
         )
     }
 }
+
+const initStates = (state) => {
+    return { state }
+};
+export default connect(initStates)(AjustesPage);
