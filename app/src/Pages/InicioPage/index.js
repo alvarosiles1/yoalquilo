@@ -78,6 +78,7 @@ class InicioPage extends Component {
                     { label: "sucursal", url: "sucursal", icon: "Ajustes" },
                     { label: "clientes", url: "cliente", icon: "Usuarios_all" },
                     { label: "Servicios", url: "servicio", icon: "Ajustes" },
+                    { label: "subordinados", url: "subordinado", icon: "Usuarios_all" },
 
 
                 ]} />
