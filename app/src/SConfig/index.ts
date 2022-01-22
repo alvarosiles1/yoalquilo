@@ -4,9 +4,10 @@ const SThemeProps: SThemeThemes = {
     default: {
         barStyle: "dark-content",
         barColor: "#EC363F",
-        primary: "#ffffff",
+        primary: "#EC363F",
         secondary: "#ffffff",
-        background: "#cccccc",
+        text: "#000000",
+        background: "#ffffff",
         card: "#00000022",
 
     },
@@ -15,7 +16,7 @@ const SThemeProps: SThemeThemes = {
         barColor: "#000000",
         primary: "#000000",
         secondary: "#ffffff",
-        background: "#222222",
+        background: "#000000",
         card: "#ffffff44",
     }
 }

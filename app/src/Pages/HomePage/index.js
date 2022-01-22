@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SLoad, SPage, SText } from 'servisofts-component';
+import BarraSuperior from '../../Components/BarraSuperior';
 import usuario from '../../Services/Usuario/Components/usuario';
+import Barra from './Barra';
 
 class HomePage extends Component {
     constructor(props) {
@@ -16,7 +18,7 @@ class HomePage extends Component {
         }
         return (
             <SPage title={'HomePage'} hidden>
-                <SText fontSize={66}>{'HomePage'}</SText>
+                <Barra/>
             </SPage>
         );
     }

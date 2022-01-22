@@ -14,7 +14,7 @@ import IconMenuCasa, { ReactComponent as IconMenuCasaW } from './svg/iconMenuCas
 import IconMenuCondominio, { ReactComponent as IconMenuCondominioW } from './svg/iconMenuCondominio.svg';
 import IconMenuEdificio, { ReactComponent as IconMenuEdificioW } from './svg/iconMenuEdificio.svg';
 import IconMenuMotel, { ReactComponent as IconMenuMotelW } from './svg/iconMenuMotel.svg';
-
+import YAHome, { ReactComponent as YAHomeW } from './svg/yahome.svg';
 const Assets: SAssets = {
     svg: {
         "Logo": { Native: Logo, Web: LogoW },
@@ -31,6 +31,7 @@ const Assets: SAssets = {
         "IconMenuCondominio": { Native: IconGoogle, Web: IconGoogleW },
         "IconMenuEdificio": { Native: IconGoogle, Web: IconGoogleW },
         "IconMenuMotel": { Native: IconGoogle, Web: IconGoogleW },
+        "YAHome": { Native: YAHome, Web: YAHomeW },
 
     }
 }
