@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SLoad, SPage, SText } from 'servisofts-component';
-import BarraSuperior from '../../Components/BarraSuperior';
 import usuario from '../../Services/Usuario/Components/usuario';
 import Barra from './Barra';
 
