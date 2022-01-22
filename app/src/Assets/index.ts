@@ -26,11 +26,11 @@ const Assets: SAssets = {
         "IconFaceb": { Native: IconFaceb, Web: IconFacebW },
         "IconGoogle": { Native: IconGoogle, Web: IconGoogleW },
 
-        "IconMenuBg": { Native: IconGoogle, Web: IconGoogleW },
-        "IconMenuCasa": { Native: IconGoogle, Web: IconGoogleW },
-        "IconMenuCondominio": { Native: IconGoogle, Web: IconGoogleW },
-        "IconMenuEdificio": { Native: IconGoogle, Web: IconGoogleW },
-        "IconMenuMotel": { Native: IconGoogle, Web: IconGoogleW },
+        "IconMenuBg": { Native: IconMenuBg, Web: IconMenuBgW },
+        "IconMenuCasa": { Native: IconMenuCasa, Web: IconMenuCasaW },
+        "IconMenuCondominio": { Native: IconMenuCondominio, Web: IconMenuCondominioW },
+        "IconMenuEdificio": { Native: IconMenuEdificio, Web: IconMenuEdificioW },
+        "IconMenuMotel": { Native: IconMenuMotel, Web: IconMenuMotelW },
         "YAHome": { Native: YAHome, Web: YAHomeW },
 
     }

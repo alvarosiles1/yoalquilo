@@ -11,12 +11,20 @@ class Inmueble extends Component {
 
     render() {
         return (
-            <SView width={150} height={200} row center   >
+            <SView col={'xs-6 md-4 lg-12 xl-2'} height={200} row center   >
 
-                <SView width={120} height={120} row center    >
-                    <SView col={'xs-12'} height center card>
-                        <SIcon name={'Girl'} width={80} height={80} />
+                <SView width={120} height={120} row center   >
+
+                    <SView col={'xs-12'} center  >
+                        <SView width={'100%'} height={'100%'} style={{
+                            position: "absolute",
+                        }} center>
+                            <SIcon name={'IconMenuCondominio'} width={80} height={80} />
+
+                        </SView>
+                        <SIcon name={'IconMenuBg'} width={"100%"} />
                     </SView>
+
                     <SView col={'xs-12'} height={50} center  >
                         <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>{this.props.data?.descripcion}</SText>
                         <SText fontSize={12} font={"Roboto-Light"} color={'#BEB2B2'} style={{ textTransform: "capitalize" }}>{this.props.data?.direccion}</SText>
