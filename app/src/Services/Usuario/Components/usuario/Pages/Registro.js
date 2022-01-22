@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SButtom, SForm, SHr, SPage, SText, SNavigation, SLoad, SView, SIcon, SPopup, STheme } from 'servisofts-component';
 import SSocket from 'servisofts-socket';
+import YoAlquilo from '../../../../../Components/YoAlquilo';
 import Parent from '../index'
 class Registro extends Component {
     constructor(props) {
@@ -21,10 +22,12 @@ class Registro extends Component {
             col={"xs-11 sm-9 md-7 lg-5 xl-4"}
             center
             inputProps={{
-                customStyle: "kolping",
+                // customStyle: "kolping",
+                col: "xs-12",
+                customStyle: "calistenia",
             }}
             inputs={{
-                foto_p: { type: "image", isRequired: false, defaultValue: `${SSocket.api.root}${Parent.component}/${this.key}`,col:"xs-3" },
+                // foto_p: { type: "image", isRequired: false, defaultValue: `${SSocket.api.root}${Parent.component}/${this.key}`, col: "xs-3" },
                 Nombres: { label: "Nombres", isRequired: true, defaultValue: this.usr.Nombres, },
                 Apellidos: { label: "Apellidos", isRequired: true, defaultValue: this.usr.Apellidos, },
                 Telefono: { label: "Telefono", type: "phone", isRequired: true, defaultValue: this.usr.Correo, },
@@ -91,13 +94,13 @@ class Registro extends Component {
                 <SView height={30}></SView>
                 {this.getContent()}
                 <SHr height={25} />
-                <SButtom
-                    style={{ color: '#fff' }}
-                    props={{
-                        type: "outline"
-                    }}
-                    onPress={() => { this.form.submit() }}
-                >{(this.key ? "Editar" : "Registrar")}</SButtom>
+
+
+                <YoAlquilo.YoAlquiloButtom onPress={() => {
+                    this.form.submit();
+                }}>{(this.key ? "Editar" : "Registrar")}</YoAlquilo.YoAlquiloButtom>
+                <SHr height={25} />
+
             </SPage>
         );
     }

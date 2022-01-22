@@ -6,11 +6,11 @@ import org.json.JSONObject;
 import Server.SSSAbstract.SSSessionAbstract;
 import Servisofts.SPGConect;
 
-public class empresa {
+public class empresa_administrador {
 
-    private final static String component = "empresa";
+    private final static String component = "empresa_administrador";
 
-    public empresa(JSONObject obj, SSSessionAbstract sesion) {
+    public empresa_administrador(JSONObject obj, SSSessionAbstract sesion) {
         switch (obj.getString("type")) {
             case "getAll":
                 getAll(obj, sesion);
@@ -41,10 +41,15 @@ public class empresa {
         try {
             // DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
             // String fecha_on = formatter.format(new Date());
+
             JSONObject data = obj.getJSONObject("data");
             data.put("key", UUID.randomUUID().toString());
             data.put("fecha_on", "now()");
             data.put("estado", 1);
+
+            // data.put("key_usuario", 1);
+            // data.put("fecha_on", 1);
+            // data.put("estado", 1);
 
             SPGConect.insertArray(component, new JSONArray().put(data));
 

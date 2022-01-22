@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { SLoad } from 'servisofts-component';
 import { SButtom, SDate, SForm, SNavigation, SPage, SPopup, SText, STheme, SView, SIcon } from 'servisofts-component';
 import Usuario from '..';
+import YoAlquilo from '../../../../../Components/YoAlquilo';
 // import BackgroundImage from '../../../Components/BackgroundImage';
 // import FotoPerfilComponent from '../../../Components/FotoPerfilComponent';
 // import LogoAnimado from '../../CargaPage/LogoAnimado';
@@ -29,7 +30,7 @@ class RecuperarPass extends Component {
             }}
             inputProps={{
                 col: "xs-12",
-                customStyle: "kolping",
+                customStyle: "calistenia",
             }}
             inputs={{
                 Correo: { label: "Ingrese su correo electrónico", type: "email", isRequired: true, icon: <SIcon name={"InputEmail"} width={40} height={30} /> },
@@ -67,13 +68,12 @@ class RecuperarPass extends Component {
                         {this.getForm()}
                         <SView height={16} />
                         <SView col={"xs-11"} row center>
-                            <SButtom primary props={{
-                                // type: STheme.color.primary
-                            }}
-                                onPress={() => {
-                                    this.form.submit();
-                                }}
-                            >ENVIAR CÓDIGO</SButtom>
+
+                            <YoAlquilo.YoAlquiloButtom onPress={() => {
+                                this.form.submit();
+                            }}>ENVIAR CÓDIGO</YoAlquilo.YoAlquiloButtom>
+
+
                         </SView>
                         <SView height={36} />
                     </SView>

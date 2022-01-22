@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { SButtom, SForm, SHr, SIcon, SNavigation, SPage, SPopup, SText, STheme, SView } from 'servisofts-component';
 import Parent from '../index'
 import Usuario from '..';
+import YoAlquilo from '../../../../../Components/YoAlquilo';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -17,12 +18,12 @@ class Login extends Component {
                 col: "xs-12",
             }}
             inputProps={{
-                customStyle: "kolping",
+                customStyle: "calistenia",
                 separation: 16,
             }}
             inputs={{
                 usuario: {
-                    placeholder: "E-mail",
+                    placeholder: "Ingresar e-mail",
                     isRequired: true, keyboardType: "email-address", autoCapitalize: "none", type: "email", autoFocus: true, onKeyPress: (evt) => {
                         if (evt.key === "Enter") {
                             this.form.focus("password");
@@ -31,7 +32,7 @@ class Login extends Component {
                     icon: <SIcon name={"InputEmail"} width={40} height={30} />
                 },
                 password: {
-                    placeholder: "Contraseña",
+                    placeholder: "Ingresar contraseña",
                     type: "password", isRequired: true, onKeyPress: (evt) => {
                         if (evt.key === "Enter") {
                             this.form.submit();
@@ -56,21 +57,21 @@ class Login extends Component {
         if (this.props.state.usuarioReducer.type == "login") {
             this.props.state.usuarioReducer.type = "";
             if (Parent.Actions.validateSession(this.props, true)) {
-                    SNavigation.replace('/');
-                    return null;
-                }
+                SNavigation.replace('/');
+                return null;
+            }
         }
-        if (Parent.Actions.validateSession(this.props,true)) {
+        if (Parent.Actions.validateSession(this.props, true)) {
             SNavigation.replace('/');
             return null;
         }
-       
+
         return (
             <SPage title={'Login ' + Parent.component} center hidden>
                 <SView center col={"xs-12"}>
                     <SView col={"xs-11 md-6 xl-4"} center  >
                         <SView col={"xs-11"} height={140}>
-                            <SIcon name={"Logo"} />
+                            <SIcon name={"Off"} />
                         </SView>
                         <SView height={32} />
                         {this.getForm()}
@@ -80,12 +81,15 @@ class Login extends Component {
                         </SView>
                         <SView height={30} />
                         <SView col={"xs-11"} row center>
-                            <SButtom onPress={() => {
+
+                            <YoAlquilo.YoAlquiloButtom onPress={() => {
                                 this.form.submit();
-                            }}>INICIAR</SButtom>
-                            {/* <SButtom style={{ backgroundColor: STheme.color.primary, width: '100%', fontSize: 14, borderRadius: 8, }} onPress={() => {
-                                this.form.submit();
-                            }} ></SButtom> */}
+                            }}>INICIAR</YoAlquilo.YoAlquiloButtom>
+
+
+
+
+
                         </SView>
                         <SView height={30} />
                         <SView col={"xs-11"} height={40} row center  >
@@ -108,7 +112,8 @@ class Login extends Component {
                                     backgroundColor: 'white', borderRadius: 8, borderColor: STheme.color.lightGray, borderWidth: 2, padding: 8
                                 }}
                                     onPress={() => { SNavigation.navigate('faceb'); }}>
-                                    <SIcon name={"IconGoogle"} />
+                                    <SIcon name={"IconFaceb"} />
+
                                 </SView>
                             </SView>
                             <SView flex center height={60} >
@@ -116,7 +121,8 @@ class Login extends Component {
                                     backgroundColor: 'white', borderRadius: 8, borderColor: STheme.color.lightGray, borderWidth: 2, padding: 8
                                 }}
                                     onPress={() => { SNavigation.navigate('faceb'); }}>
-                                    <SIcon name={"IconFaceb"} />
+                                    <SIcon name={"IconGoogle"} />
+
                                 </SView>
                             </SView>
                             <SView col={"xs-2"} height center>
@@ -127,6 +133,8 @@ class Login extends Component {
                             <SView flex center height={20} row>
                                 <SText fontSize={14} color={STheme.color.lightBlack} font={"LondonMM"} >¿No tienes una cuenta?  </SText>
                                 <SText fontSize={14} color={STheme.color.primary} font={"LondonMM"} onPress={() => { SNavigation.navigate(Parent.component + '/registro'); }}>REGISTRAR</SText>
+
+
                             </SView>
                         </SView>
                         <SView height={30} />

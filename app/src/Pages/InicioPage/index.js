@@ -71,14 +71,22 @@ class InicioPage extends Component {
                 </SView>
 
                 <BotonesPaginas data={[
-                    // { label: "Servicios", url: "servicios", icon: "Servisofts" },
-                    { label: "Usuarios", url: "usuario", icon: "Usuarios_all" },
-                    { label: "Ajustes", url: "ajustes", icon: "Ajustes" },
-                    { label: "empresa", url: "empresa", icon: "Usuarios_all" },
-                    { label: "sucursal", url: "sucursal", icon: "Ajustes" },
-                    { label: "clientes", url: "cliente", icon: "Usuarios_all" },
-                    { label: "Servicios", url: "servicio", icon: "Ajustes" },
-                    { label: "subordinados", url: "subordinado", icon: "Usuarios_all" },
+                    // { label: "Usuarios", url: "usuario", icon: "Usuarios_all" },
+                    // { label: "Ajustes", url: "ajustes", icon: "Ajustes" },
+                    // { label: "empresa", url: "empresa", icon: "Usuarios_all" },
+                    // { label: "sucursal", url: "sucursal", icon: "Ajustes" },
+                    // { label: "clientes", url: "cliente", icon: "Usuarios_all" },
+                    // { label: "Servicios", url: "servicio", icon: "Ajustes" },
+                    // { label: "subordinados", url: "subordinado", icon: "Usuarios_all" },
+
+                    { label: "Edificio", url: "usuario", icon: "Ajustes" },
+                    { label: "Sucursal", url: "ajustes", icon: "Ajustes" },
+                    { label: "Habitación", url: "empresa", icon: "Ajustes" },
+                    { label: "Servicios", url: "sucursal", icon: "Ajustes" },
+                    { label: "Inquilino", url: "cliente", icon: "Usuarios_all" },
+                    { label: "Pago", url: "servicio", icon: "Ajustes" },
+                    { label: "Reservar", url: "subordinado", icon: "Ajustes" },
+                    { label: "Reporte", url: "subordinado", icon: "Ajustes" },
 
 
                 ]} />
