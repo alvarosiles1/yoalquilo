@@ -89,6 +89,7 @@ class InicioPage extends Component {
                     { label: "Reporte", url: "subordinado", icon: "Ajustes" },
 
 
+
                 ]} />
             </SPage>
         );

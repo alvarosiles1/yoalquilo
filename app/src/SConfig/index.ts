@@ -3,9 +3,9 @@ import { SThemeThemes } from 'servisofts-component'
 const SThemeProps: SThemeThemes = {
     default: {
         barStyle: "dark-content",
-        barColor: "#ffffff",
-        primary: "#F50F0F",
-        secondary: "#000000",
+        barColor: "#EC363F",
+        primary: "#ffffff",
+        secondary: "#ffffff",
         background: "#cccccc",
         card: "#00000022",
 
@@ -22,7 +22,7 @@ const SThemeProps: SThemeThemes = {
 
 const SocketProps: SSocketProps = {
     name: 'yoalquilo',
-    host: 'alvaro.ss.lo',
+    host: '192.168.3.2',
     port: {
         native: 10022,
         web: 20022,
