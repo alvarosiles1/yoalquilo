@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SButtom, SForm, SHr, SIcon, SNavigation, SPage, SPopup, SText, STheme, SView } from 'servisofts-component';
+import { SButtom, SForm, SHr, SIcon, SImage, SNavigation, SPage, SPopup, SText, STheme, SView } from 'servisofts-component';
 import Parent from '../index'
 import Usuario from '..';
 import YoAlquilo from '../../../../../Components/YoAlquilo';
@@ -18,7 +18,7 @@ class Login extends Component {
                 col: "xs-12",
             }}
             inputProps={{
-                customStyle: "calistenia",
+                customStyle: "yoalquilo",
                 separation: 16,
             }}
             inputs={{
@@ -70,14 +70,16 @@ class Login extends Component {
             <SPage title={'Login ' + Parent.component} center hidden>
                 <SView center col={"xs-12"}>
                     <SView col={"xs-11 md-6 xl-4"} center  >
+                        <SHr height={32} />
                         <SView col={"xs-11"} height={140}>
-                            <SIcon name={"Off"} />
+                            {/* <SIcon name={"Off"} /> */}
+                            <SImage src={require("../../../../../Assets/img/logoCuadrado.png")}/>
                         </SView>
                         <SView height={32} />
                         {this.getForm()}
                         <SView height={16} />
                         <SView col={"xs-12"} flex height style={{ alignItems: "flex-end" }}>
-                            <SText fontSize={14} color={STheme.color.lightBlack} font={"LondonMM"} onPress={() => { SNavigation.navigate(Parent.component + '/recuperarContrasena'); }}>¿Olvidaste tu email o contraseña?</SText>
+                            <SText fontSize={14} color={STheme.color.lightBlack} font={"Roboto"} onPress={() => { SNavigation.navigate(Parent.component + '/recuperarContrasena'); }}>¿Olvidaste tu email o contraseña?</SText>
                         </SView>
                         <SView height={30} />
                         <SView col={"xs-11"} row center>
@@ -97,7 +99,7 @@ class Login extends Component {
                                 <SHr color={STheme.color.lightGray} height={1.5} ></SHr>
                             </SView>
                             <SView col={"xs-6"} height center>
-                                <SText fontSize={14} color={STheme.color.lightGray + 100} font={"LondonMM"}> o Iniciar sesión con  </SText>
+                                <SText fontSize={14} color={STheme.color.lightGray + 100} font={"Roboto"}> o Iniciar sesión con  </SText>
                             </SView>
                             <SView col={"xs-3"} height center>
                                 <SHr color={STheme.color.lightGray} height={1.5} ></SHr>
@@ -131,13 +133,13 @@ class Login extends Component {
 
                         <SView col={"xs-11"} height={50} row center  >
                             <SView flex center height={20} row>
-                                <SText fontSize={14} color={STheme.color.lightBlack} font={"LondonMM"} >¿No tienes una cuenta?  </SText>
-                                <SText fontSize={14} color={STheme.color.primary} font={"LondonMM"} onPress={() => { SNavigation.navigate(Parent.component + '/registro'); }}>REGISTRAR</SText>
+                                <SText fontSize={14} color={STheme.color.lightBlack} font={"Roboto"} >¿No tienes una cuenta?  </SText>
+                                <SText fontSize={14} color={STheme.color.primary} font={"Roboto"} onPress={() => { SNavigation.navigate(Parent.component + '/registro'); }}>REGISTRAR</SText>
 
 
                             </SView>
                         </SView>
-                        <SView height={30} />
+                        <SView height={60} />
                     </SView>
                 </SView>
             </SPage>

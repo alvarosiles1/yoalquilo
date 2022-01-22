@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SIcon, SLoad, SNavigation, SPage, STable2, SText, SView } from 'servisofts-component';
+import usuario from '../index';
 import Parent from '../index'
 class Lista extends Component {
     constructor(props) {
@@ -26,6 +27,9 @@ class Lista extends Component {
         />
     }
     render() {
+        if (!usuario.Actions.validateSession(this.props)) {
+            return <SLoad />
+        }
         return (
             <SPage title={'Lista de '+Parent.component} disableScroll center>
                 {this.getContent()}

@@ -8,7 +8,7 @@ const SThemeProps: SThemeThemes = {
         secondary: "#ffffff",
         text: "#000000",
         background: "#ffffff",
-        card: "#00000022",
+        card: "#DDDDDD66",
 
     },
     dark: {
@@ -23,7 +23,7 @@ const SThemeProps: SThemeThemes = {
 
 const SocketProps: SSocketProps = {
     name: 'yoalquilo',
-    host: '192.168.3.2',
+    host: 'alvaro.ss.lo',
     port: {
         native: 10022,
         web: 20022,
