@@ -18,8 +18,10 @@ class Login extends Component {
                 col: "xs-12",
             }}
             inputProps={{
-                customStyle: "calistenia",
+                // customStyle: "calistenia",
                 separation: 16,
+                backgroundColor: 'cyan',
+                borderColor: 'blue'
             }}
             inputs={{
                 usuario: {

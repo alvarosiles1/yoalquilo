@@ -8,15 +8,32 @@ import Inmueble from './Inmueble';
 const INMUEBLES = {
     "1": {
         key: "1",
-        descripcion: "Casa",
-        direccion: "Calle 1 # 1-1",
-        tipo: "casa",
+        descripcion: "Santa Maria 1",
+        direccion: "Calle 2 # 2-2",
+        tipo: "Condominio",
     },
+
     "2": {
         key: "2",
-        descripcion: "Departamento",
+        descripcion: "Santa Maria 2",
         direccion: "Calle 2 # 2-2",
-        tipo: "departamento",
+        tipo: "Departamento",
+    },
+    "3": {
+        key: "2",
+        descripcion: "Santa Maria 2",
+        direccion: "Calle 2 # 2-2",
+        tipo: "Departamento",
+    }, "4": {
+        key: "2",
+        descripcion: "Santa Maria 2",
+        direccion: "Calle 2 # 2-2",
+        tipo: "Departamento",
+    }, "5": {
+        key: "2",
+        descripcion: "Santa Maria 2",
+        direccion: "Calle 2 # 2-2",
+        tipo: "Departamento",
     },
 }
 
@@ -31,8 +48,12 @@ class HomePage extends Component {
         return Object.keys(INMUEBLES).map(key => {
             var obj = INMUEBLES[key];
             return <>
-                <SView width={16} />
+
+
+
                 <Inmueble data={obj} />
+
+
             </>
         })
     }
@@ -44,8 +65,8 @@ class HomePage extends Component {
             <>
                 <Barra />
                 <SPage title={'HomePage'} hidden>
-                    <SHr/>
-                    <SView col={"xs-12"} row>
+                    <SHr />
+                    <SView col={"xs-12"} row center  >
                         {this.getLista()}
                     </SView>
                 </SPage>

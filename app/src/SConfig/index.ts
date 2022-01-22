@@ -23,7 +23,7 @@ const SThemeProps: SThemeThemes = {
 
 const SocketProps: SSocketProps = {
     name: 'yoalquilo',
-    host: '192.168.3.2',
+    host: '192.168.3.4',
     port: {
         native: 10022,
         web: 20022,
