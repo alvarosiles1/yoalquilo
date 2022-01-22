@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SButtom, SForm, SHr, SPage, SText, SNavigation, SLoad, SView, SIcon, SPopup, STheme } from 'servisofts-component';
+import { SButtom, SForm, SHr, SPage, SText, SNavigation, SLoad, SView, SIcon, SPopup, STheme, SImage } from 'servisofts-component';
 import SSocket from 'servisofts-socket';
 import YoAlquilo from '../../../../../Components/YoAlquilo';
 import Parent from '../index'
@@ -24,7 +24,7 @@ class Registro extends Component {
             inputProps={{
                 // customStyle: "kolping",
                 col: "xs-12",
-                customStyle: "calistenia",
+                customStyle: "yoalquilo",
             }}
             inputs={{
                 // foto_p: { type: "image", isRequired: false, defaultValue: `${SSocket.api.root}${Parent.component}/${this.key}`, col: "xs-3" },
@@ -51,24 +51,24 @@ class Registro extends Component {
     alertError(error) {
         return <SView col={"xs-12 md-8 xl-6"} row style={{ height: 250, borderRadius: 8, }} backgroundColor={STheme.color.background}>
             {/* <BackgroundImage /> */}
-            <SView style={{
+            {/* <SView style={{
                 width: "100%",
                 top: 0,
                 left: 0,
                 position: "absolute",
                 ...this.props.style,
             }}>
-                <SIcon name={"Enfermera10"} height={500} />
+                 <SImage src={require("../../../../../Assets/img/logoCuadrado.png")} width/>
             </SView>
-            <SView col={"xs-3"}  ></SView>
-            <SView col={"xs-9"} style={{
+            <SView col={"xs-3"}  ></SView> */}
+            <SView col={"xs-10"} style={{
                 // width: "100%",
                 // height: "100%",
             }} center>
-                <SText secondary style={{ fontSize: 16, }}>El usuario ya existe</SText>
+                <SText style={{ fontSize: 16, }}>El usuario ya existe</SText>
                 <SView height={8} />
                 {/* <SText secondary style={{ fontSize: 12, }}>{`Nombre: ${error["Nombres"] + " " + error["Apellidos"]}`}</SText> */}
-                <SText secondary style={{ fontSize: 12, }}>{`Correo: ${error["Correo"]}`}</SText>
+                <SText style={{ fontSize: 12, }}>{`Correo: ${error["Correo"]}`}</SText>
                 <SView height={30}></SView>
                 {/* <SText style={{ fontSize: 12, }}>{`Fecha nacimiento: ${error["Fecha nacimiento"]}`}</SText> */}
                 {/* <SText secondary style={{ fontSize: 12, }}>{`CI: ${error["CI"]}`}</SText>

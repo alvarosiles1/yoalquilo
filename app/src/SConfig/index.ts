@@ -8,7 +8,7 @@ const SThemeProps: SThemeThemes = {
         secondary: "#ffffff",
         text: "#000000",
         background: "#ffffff",
-        card: "#00000022",
+        card: "#DDDDDD66",
 
     },
     dark: {

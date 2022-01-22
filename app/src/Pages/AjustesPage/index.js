@@ -51,7 +51,6 @@ class AjustesPage extends Component {
             SNavigation.replace("carga");
             // this.fadeOut();
 
-
         }}>Logout</SButtom>
     }
 
@@ -84,19 +83,14 @@ class AjustesPage extends Component {
                             <PerfilUsuario navigation={this.props.navigation} />
                         </SView>
                         <SView col={"xs-12"} style={{ height: 24 }} />
-                        <SView style={{
-                            width: "100%",
-                            borderRadius: 8,
-                            overflow: "hidden",
-                        }}>
-                            {this.getOptions({ title: "Carrito", icon: "Carrito" })}
-                            {this.getOptions({ title: "Ajustes", icon: "Ajustes" })}
-                            {this.getOptions({ title: "Caja", icon: "Caja" }, true)}
+
+                        {/* {this.getOptions({ title: "Carrito", icon: "Carrito" })} */}
+                        {/* {this.getOptions({ title: "Ajustes", icon: "Ajustes" })} */}
+                        {/* {this.getOptions({ title: "Caja", icon: "Caja" }, true)} */}
 
 
-                            <SText>Cerrar sesion</SText>
-                            {this.logout()}
-                        </SView>
+                        {/* <SText>Cerrar sesion</SText> */}
+                        {this.logout()}
                     </SView>
                 </SView>
             </SPage>
