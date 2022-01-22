@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SHr, SIcon, SPage, SText, STheme, SView } from 'servisofts-component';
+import { SHr, SIcon, SImage, SPage, SText, STheme, SView } from 'servisofts-component';
 
 class Barra extends Component {
     constructor(props) {
@@ -15,12 +15,13 @@ class Barra extends Component {
                 borderBottomLeftRadius: 16,
                 borderBottomRightRadius: 16,
             }} center>
-                <SView width={100} style={{
+                <SView width={100} height={71} style={{
                     position: 'absolute',
                     bottom: 0,
                     right: 4,
                 }}>
-                    <SIcon name={"YAHome"} />
+                    {/* <SIcon name={"YAHome"} /> */}
+                    <SImage src={require("./logo.png")} width={100}/>
                 </SView>
                 <SView width={80} height style={{
                     position: 'absolute',
