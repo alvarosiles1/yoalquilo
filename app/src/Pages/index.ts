@@ -12,20 +12,21 @@ import Login from '../Services/Usuario/Components/usuario/Pages/Login';
 import Edificio_Registro from './InicioPage/Edificio_Registro';
 import Administradores_Registro from './InicioPage/Administradores_Registro';
 import Sucursal_Registro from './InicioPage/Sucursal_Registro';
+import HomePage from './HomePage';
 
 const Pages: SPageListProps = {
-    "/": InicioPage,
+    "/": HomePage,
     "carga": CargaPage,
     "ajustes": AjustesPage,
     ...Services.Pages,
-    ...Servicios.Pages,
-    ...Page.Pages,
-    ...yoalquilo.Pages,
-    "login": Login,
+    // ...Servicios.Pages,
+    // ...Page.Pages,
+    // ...yoalquilo.Pages,
+    // "login": Login,
 
-    "edificio": Edificio_Registro,
-    "administradores": Administradores_Registro,
-    "sucursal": Sucursal_Registro,
+    // "edificio": Edificio_Registro,
+    // "administradores": Administradores_Registro,
+    // "sucursal": Sucursal_Registro,
 
 }
 
