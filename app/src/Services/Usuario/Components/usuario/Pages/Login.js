@@ -111,6 +111,7 @@ class Login extends Component {
                         <SView col={"xs-11"} height={100} row center  >
                             <SView col={"xs-2"} height center>
                             </SView>
+
                             <SView flex center height={60} >
                                 <SView height={50} colSquare center style={{
                                     backgroundColor: 'white', borderRadius: 8, borderColor: STheme.color.lightGray, borderWidth: 2, padding: 8
@@ -120,6 +121,7 @@ class Login extends Component {
 
                                 </SView>
                             </SView>
+
                             <SView flex center height={60} >
                                 <SView height={50} colSquare center style={{
                                     backgroundColor: 'white', borderRadius: 8, borderColor: STheme.color.lightGray, borderWidth: 2, padding: 8
@@ -129,6 +131,7 @@ class Login extends Component {
 
                                 </SView>
                             </SView>
+
                             <SView col={"xs-2"} height center>
                             </SView>
                         </SView>

@@ -98,7 +98,7 @@ class Lista extends Component {
             <SPage title={'Lista'} disableScroll>
                 {this.getLista()}
                 <FloatButtom onPress={() => {
-                    SNavigation.navigate(Parent.component + "/registro", { key_servicio: this.key_servicio })
+                    SNavigation.navigate("splash")
                 }} />
             </SPage>
         );

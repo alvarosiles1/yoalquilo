@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SHr, SLoad, SNavigation, SPage, SText, SView } from 'servisofts-component';
-import FloatButtom from '../../Components/FloatButtom';
+import { SHr, SLoad, SPage, SText, SView } from 'servisofts-component';
 import usuario from '../../Services/Usuario/Components/usuario';
 import Barra from './Barra';
 import Inmueble from './Inmueble';
@@ -12,8 +11,6 @@ const INMUEBLES = {
         descripcion: "Santa Maria 1",
         direccion: "Calle 2 # 2-2",
         tipo: "Condominio",
-        icono: "IconMenuCondominio",
-
     },
 
     "2": {
@@ -21,30 +18,22 @@ const INMUEBLES = {
         descripcion: "Santa Maria 2",
         direccion: "Calle 2 # 2-2",
         tipo: "Departamento",
-        icono: "IconMenuEdificio",
-
     },
     "3": {
         key: "2",
         descripcion: "Santa Maria 2",
         direccion: "Calle 2 # 2-2",
         tipo: "Departamento",
-        icono: "IconMenuCasa",
-
     }, "4": {
         key: "2",
         descripcion: "Santa Maria 2",
         direccion: "Calle 2 # 2-2",
         tipo: "Departamento",
-        icono: "IconMenuHotel",
-
     }, "5": {
         key: "2",
         descripcion: "Santa Maria 2",
         direccion: "Calle 2 # 2-2",
         tipo: "Departamento",
-        icono: "IconMenuMotel",
-
     },
 }
 
@@ -79,13 +68,8 @@ class HomePage extends Component {
                     <SHr />
                     <SView col={"xs-12"} row center  >
                         {this.getLista()}
-
-
                     </SView>
-
-                </SPage> <FloatButtom onPress={() => {
-                    SNavigation.navigate("splash")
-                }} />
+                </SPage>
             </>
         );
     }

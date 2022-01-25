@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SPage, SText } from 'servisofts-component';
-import FloatButtom from '../../../Components/FloatButtom';
-import Parent from '../index';
-class Home extends Component {
+
+class Lista extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,9 +11,9 @@ class Home extends Component {
 
     render() {
         return (
-            <SPage title={Parent.component}>
+            <SPage title={'Lista'}>
 
-                <SText>{Parent.component + '/Home'}</SText>
+                <SText>{'Lista'}</SText>
 
             </SPage>
         );
@@ -23,4 +22,4 @@ class Home extends Component {
 const initStates = (state) => {
     return { state }
 };
-export default connect(initStates)(Home);
+export default connect(initStates)(Lista);

@@ -14,11 +14,15 @@ import Administradores_Registro from './InicioPage/Administradores_Registro';
 import Sucursal_Registro from './InicioPage/Sucursal_Registro';
 import HomePage from './HomePage';
 
+
+
 const Pages: SPageListProps = {
     "/": HomePage,
     "carga": CargaPage,
     "ajustes": AjustesPage,
     ...Services.Pages,
+
+
     // ...Servicios.Pages,
     // ...Page.Pages,
     // ...yoalquilo.Pages,

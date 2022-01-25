@@ -1,32 +1,34 @@
 import { SPageListProps } from 'servisofts-component'
-import cliente from './Components/cliente';
-import empresa from './Components/empresa';
-import servicio from './Components/servicio';
-import subordinado from './Components/subordinado';
-import sucursal from './Components/sucursal';
+
+import inmueble from './Components/splash';
+import pago from './Pages/pago';
+
+
 
 const ServiceName = "yoalquilo";
 
 const Pages: SPageListProps = {
-    ...empresa.Pages,
-    ...sucursal.Pages,
-    ...cliente.Pages,
-    ...servicio.Pages,
-    ...subordinado.Pages
+	...inmueble.Pages,
+	// ...inquilino.Pages,
+	...pago.Pages,
+	// ...reporte.Pages,
+	// ...reserva.Pages,
+	// ...servicio.Pages
 
 }
 
 const Reducers = {
-    ...empresa.Reducers,
-    ...sucursal.Reducers,
-    ...cliente.Reducers,
-    ...servicio.Reducers,
-    ...subordinado.Reducers
+	...inmueble.Reducers,
+	// ...inquilino.Reducers,
+	...pago.Reducers,
+	// ...reporte.Reducers,
+	// ...reserva.Reducers,
+	// ...servicio.Reducers
 
 }
 
 export default {
-    ServiceName,
-    Pages,
-    Reducers,
+	ServiceName,
+	Pages,
+	Reducers,
 };
