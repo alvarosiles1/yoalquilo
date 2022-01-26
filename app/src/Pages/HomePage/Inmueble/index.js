@@ -11,9 +11,8 @@ class Inmueble extends Component {
 
     render() {
         return (
-            <SView col={'xs-6 md-4 lg-12 xl-2'} height={200} row center   >
-
-                <SView width={120} height={120} row center   >
+            <SView col={'xs-6 md-4 lg-12 xl-2'} height={200} row center >
+                <SView width={120} height={120} row center  >
                     <SText fontSize={12} font={"Roboto-Light"} color={'#BEB2B2'} style={{ textTransform: "capitalize" }}>{this.props.data?.tipo}</SText>
 
                     <SView col={'xs-12'} center  >

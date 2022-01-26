@@ -1,4 +1,4 @@
-const component = "splash"; // no te olvides de cambiar ******************************************
+const component = "aaaaaaaaaaaaaaaaaaaaaaaaaaa"; // no te olvides de cambiar ******************************************
 const version = "1.0";
 // ---------------------------------------
 import Actions from "./Actions";
@@ -15,7 +15,7 @@ export default {
         [component + 'Reducer']: Reducer
     },
     Pages: {
-        [component]: Splash1,
+        "splash1": Splash1,
         "splash2": Splash2,
         "splash3": Splash3,
 
