@@ -14,18 +14,21 @@ import Administradores_Registro from './InicioPage/Administradores_Registro';
 import Sucursal_Registro from './InicioPage/Sucursal_Registro';
 import HomePage from './HomePage';
 
+// "/": HomePage,
 
 
 const Pages: SPageListProps = {
     "/": HomePage,
+
+
     "carga": CargaPage,
     "ajustes": AjustesPage,
     ...Services.Pages,
+    // ...yoalquilo.Pages,
 
 
     // ...Servicios.Pages,
     // ...Page.Pages,
-    // ...yoalquilo.Pages,
     // "login": Login,
 
     // "edificio": Edificio_Registro,

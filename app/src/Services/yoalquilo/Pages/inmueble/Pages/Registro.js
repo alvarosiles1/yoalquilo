@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { SForm, SNavigation, SPage } from 'servisofts-component';
+import { SForm, SLoad, SNavigation, SPage } from 'servisofts-component';
 import inmueble from '..';
 
 class registro extends Component {
@@ -9,18 +9,26 @@ class registro extends Component {
         super(props);
         this.state = {
         };
+        this.key = SNavigation.getParam("pollo");
     }
     getForm() {
+        this.data = {};
+        if (this.key) {
+            this.data = inmueble.Actions.getByKey(this.key, this.props);
+            if (!this.data) return <SLoad />
+        }
+
+
         return <SForm
             col={"xs-11 sm-10 md-8 lg-6 xl-4"}
             inputProps={{
                 customStyle: "yoalquilo"
             }}
             inputs={{
-                descripcion: { label: 'Descripcion', type: 'text', isRequired: true },
-                direccion: { label: 'Direccion', type: 'text', isRequired: true },
+                descripcion: { label: 'Descripcion', type: 'text', isRequired: true, defaultValue: this.data.descripcion },
+                direccion: { label: 'Direccion', type: 'text', isRequired: true, defaultValue: this.data.direccion },
                 tipo: {
-                    label: 'Tipo', type: 'select', defaultValue: '', isRequired: true, options: [
+                    label: 'Tipo', type: 'select', defaultValue: '' + this.data.tipo + '', isRequired: true, options: [
                         { key: "", content: " " },
                         { key: "casa", content: "Casita" },
                         { key: "edificio", content: "Edificio" },
@@ -34,14 +42,20 @@ class registro extends Component {
             }}
             onSubmitName={"registrar"}
             onSubmit={(values) => {
-                inmueble.Actions.registro(values, this.props);
+                if (this.key) {
+                    inmueble.Actions.editar({ ...this.data, ...values }, this.props);
+                    // Parent.Actions.editar({ ...this.data, ...values }, this.props);
+                } else {
+                    inmueble.Actions.registro(values, this.props);
+                    // Parent.Actions.registro(values, this.props);
+                }
             }}
         />
     }
 
     render() {
         var reducer = inmueble.Actions._getReducer(this.props);
-        if(reducer.estado == "exito" && reducer.type == "registro"){
+        if (reducer.estado == "exito" && (reducer.type == "registro" || reducer.type == "editar")) {
             reducer.estado = "";
             SNavigation.goBack();
         }

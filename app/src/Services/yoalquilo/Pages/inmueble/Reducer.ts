@@ -57,8 +57,12 @@ const registro = (state: any, action: DataProps) => {
 }
 const editar = (state: any, action: DataProps) => {
     if (action.estado != "exito") return;
-    if (!state.data) return;
-    state.data[action.data.key] = action.data;
+    if (state.activas) {
+        state.activas[action.data.key] = action.data;
+    }
+    if (state.data) {
+        state.data[action.data.key] = action.data;
+    }
 }
 const getById = (state: any, action: DataProps) => {
     if (action.estado != "exito") return;

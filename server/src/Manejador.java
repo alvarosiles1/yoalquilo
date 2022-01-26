@@ -5,6 +5,7 @@ import Server.SSSAbstract.SSSessionAbstract;
 import Servisofts.SConsole;
 import component.cliente;
 import component.empresa;
+import component.inmueble;
 import component.servicio;
 import component.subordinado;
 import component.sucursal;
@@ -34,6 +35,9 @@ public class Manejador {
                     break;
                 case "cliente":
                     new cliente(obj, session);
+                    break;
+                case "inmueble":
+                    new inmueble(obj, session);
                     break;
 
             }

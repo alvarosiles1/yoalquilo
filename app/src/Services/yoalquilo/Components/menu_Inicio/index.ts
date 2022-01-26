@@ -1,4 +1,4 @@
-const component = "bbbbbbbbbbbbbbbbbbbbbb"; // no te olvides de cambiar ******************************************
+const component = "menu"; // no te olvides de cambiar ******************************************
 const version = "1.0";
 // ---------------------------------------
 import Actions from "./Actions";

@@ -41,7 +41,7 @@ export default class Actions {
     }
 
     static getByKey = (key, props) => {
-        var data = Actions.getAll(props);
+        var data = Actions.getAllActivas(props);
         if (!data) return null;
         return data[key];
     }
