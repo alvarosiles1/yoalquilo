@@ -7,6 +7,22 @@ export default class Actions {
         return props.state[Parent.component + "Reducer"];
     }
 
+    static getAllActivas = (props) => {
+        var reducer = Actions._getReducer(props);
+        var data = reducer.activas;
+        if (!data) {
+            if (reducer.estado == "cargando") return null;
+            SSocket.send({
+                component: Parent.component,
+                version: Parent.version,
+                type: "getAllActivas",
+                estado: "cargando",
+                key_usuario: props.state.usuarioReducer.usuarioLog.key,
+            })
+            return null;
+        }
+        return data;
+    }
     static getAll = (props) => {
         var reducer = Actions._getReducer(props);
         var data = reducer.data;
@@ -17,7 +33,7 @@ export default class Actions {
                 version: Parent.version,
                 type: "getAll",
                 estado: "cargando",
-                key_usuario: "",
+                key_usuario: props.state.usuarioReducer.usuarioLog.key,
             })
             return null;
         }
@@ -36,8 +52,11 @@ export default class Actions {
             version: Parent.version,
             type: "registro",
             estado: "cargando",
-            key_usuario: "",
-            data: data
+            key_usuario: props.state.usuarioReducer.usuarioLog.key,
+            data: {
+                key_usuario: props.state.usuarioReducer.usuarioLog.key,
+                ...data
+            }
         })
     }
     static editar = (data, props) => {
@@ -46,7 +65,7 @@ export default class Actions {
             version: Parent.version,
             type: "editar",
             estado: "cargando",
-            key_usuario: "",
+            key_usuario: props.state.usuarioReducer.usuarioLog.key,
             data: data
         })
     }
@@ -56,7 +75,7 @@ export default class Actions {
             version: Parent.version,
             type: "editar",
             estado: "cargando",
-            key_usuario: "",
+            key_usuario: props.state.usuarioReducer.usuarioLog.key,
             data: {
                 ...data,
                 estado: 0,

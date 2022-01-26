@@ -13,10 +13,11 @@ const SThemeProps: SThemeThemes = {
     },
     dark: {
         barStyle: "light-content",
-        barColor: "#000000",
-        primary: "#000000",
+        barColor: "#A9030C",
+        primary: "#A9030C",
         secondary: "#ffffff",
         background: "#000000",
+        text: "#FFFFFF",
         card: "#ffffff44",
     }
 }

@@ -10,7 +10,6 @@ import Registro from "./Pages/Registro";
 import RecuperarPass from "./Pages/RecuperarPass";
 import CodigoRecuperarPass from "./Pages/CodigoRecuperarPass";
 import NuevoPass from "./Pages/NuevoPass";
-import TipoUsuario from "./Pages/TipoUsuario";
 import Login from "./Pages/Login";
 import Editar from "./Pages/EditarUsuario";
 

@@ -5,6 +5,7 @@ import menuInmueble from './Components/menu_Inmueble';
 import splash from './Components/splash';
 import inquilino from './Pages/inquilino';
 
+import inmueble from './Pages/inmueble';
 
 // import pago from './Pages/pago';
 
@@ -13,10 +14,11 @@ import inquilino from './Pages/inquilino';
 const ServiceName = "yoalquilo";
 
 const Pages: SPageListProps = {
-	...menuInicio.Pages,
-	...menuInmueble.Pages,
-	...splash.Pages,
-	...inquilino.Pages,
+	// ...menuInicio.Pages,
+	// ...menuInmueble.Pages,
+	// ...splash.Pages,
+	// ...inquilino.Pages,
+	...inmueble.Pages,
 	// ...reporte.Pages,
 	// ...reserva.Pages,
 	// ...servicio.Pages
@@ -24,10 +26,11 @@ const Pages: SPageListProps = {
 }
 
 const Reducers = {
-	...menuInicio.Reducers,
-	...menuInmueble.Reducers,
-	...splash.Reducers,
-	...inquilino.Reducers,
+	// ...menuInicio.Reducers,
+	// ...menuInmueble.Reducers,
+	// ...splash.Reducers,
+	// ...inquilino.Reducers,
+	...inmueble.Reducers,
 	// ...reporte.Reducers,
 	// ...reserva.Reducers,
 	// ...servicio.Reducers

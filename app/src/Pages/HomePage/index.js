@@ -59,12 +59,7 @@ class HomePage extends Component {
         return Object.keys(INMUEBLES).map(key => {
             var obj = INMUEBLES[key];
             return <>
-
-
-
                 <Inmueble data={obj} />
-
-
             </>
         })
     }
@@ -78,13 +73,13 @@ class HomePage extends Component {
                 <SPage title={'HomePage'} hidden>
                     <SHr />
                     <SView col={"xs-12"} row center  >
-                        {this.getLista()}
+                        {/* {this.getLista()} */}
 
 
                     </SView>
 
                 </SPage> <FloatButtom onPress={() => {
-                    SNavigation.navigate("splash")
+                    SNavigation.navigate("splash1")
                 }} />
             </>
         );
