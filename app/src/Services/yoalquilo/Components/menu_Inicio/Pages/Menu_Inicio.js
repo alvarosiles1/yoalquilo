@@ -12,6 +12,25 @@ class Menu_Inicio extends Component {
 
 	}
 
+	getIcon(tipo) {
+		switch (tipo) {
+			case "condominio":
+				return "IconMenuCondominio";
+			case "edificio":
+				return "IconMenuEdificio";
+			case "casa":
+				return "IconMenuCasa";
+			case "hotel":
+				return "IconMenuHotel";
+			case 'hostal':
+				return "IconMenuHotel";
+			case "motel":
+				return "IconMenuMotel";
+			default:
+				return "YAHome";
+		}
+	}
+
 	getPerfil() {
 
 		this.data = {};

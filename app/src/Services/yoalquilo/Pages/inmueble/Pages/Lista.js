@@ -12,6 +12,30 @@ class lista extends Component {
         };
     }
 
+    getIcon(tipo) {
+        switch (tipo) {
+            case "condominio":
+                return "IconMenuCondominio";
+            case "edificio":
+                return "IconMenuEdificio";
+            case "casa":
+                return "IconMenuCasa";
+            case "hotel":
+                return "IconMenuHotel";
+            case 'hostal':
+                return "IconMenuHotel";
+            case "motel":
+                return "IconMenuMotel";
+            default:
+                return "YAHome";
+        }
+    }
+
+
+
+
+
+
     getAll() {
         var lista = inmueble.Actions.getAllActivas(this.props);
         if (!lista) return <SText>Cargando</SText>
@@ -34,7 +58,7 @@ class lista extends Component {
                             <SView width={'100%'} height={'100%'} style={{
                                 position: "absolute",
                             }} center>
-                                <SIcon name={'IMenuInmueble'} width={80} height={80} fill={STheme.color.primary} />
+                                <SIcon name={this.getIcon(obj.tipo)} width={80} height={80} fill={STheme.color.primary} />
                             </SView>
 
                             <SIcon name={'IconMenuBg'} width={"100%"} />

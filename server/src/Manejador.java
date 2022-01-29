@@ -6,7 +6,7 @@ import Servisofts.SConsole;
 import component.cliente;
 import component.empresa;
 import component.inmueble;
-import component.servicio;
+import component.servicios;
 import component.subordinado;
 import component.sucursal;
 
@@ -26,8 +26,8 @@ public class Manejador {
                     new sucursal(obj, session);
                     break;
 
-                case "servicio":
-                    new servicio(obj, session);
+                case "servicios":
+                    new servicios(obj, session);
                     break;
 
                 case "subordinado":

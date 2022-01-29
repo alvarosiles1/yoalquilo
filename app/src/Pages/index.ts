@@ -21,9 +21,14 @@ const Pages: SPageListProps = {
     "/": HomePage,
 
 
+
+    ...Services.Pages,
+
+    "home": HomePage,
+
+
     "carga": CargaPage,
     "ajustes": AjustesPage,
-    ...Services.Pages,
     // ...yoalquilo.Pages,
 
 

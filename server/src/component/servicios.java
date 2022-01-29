@@ -6,13 +6,19 @@ import org.json.JSONObject;
 import Server.SSSAbstract.SSSessionAbstract;
 import Servisofts.SPGConect;
 
-public class servicio {
-    private final static String component = "servicio";
+public class servicios {
+    private final static String component = "servicios";
 
-    public servicio(JSONObject obj, SSSessionAbstract sesion) {
+    public servicios(JSONObject obj, SSSessionAbstract sesion) {
         switch (obj.getString("type")) {
             case "getAll":
                 getAll(obj, sesion);
+                break;
+            case "getAllHabitacion":
+                getAllHabitacion(obj, sesion);
+                break;
+            case "getAllServicio":
+                getAllServicio(obj, sesion);
                 break;
             case "registro":
                 registro(obj, sesion);
@@ -36,6 +42,36 @@ public class servicio {
         }
     }
 
+    public void getAllHabitacion(JSONObject obj, SSSessionAbstract sesion) {
+        try {
+            String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" + component
+                    + ".*)) as json from " + component + " where " + component + ".estado = 1 and key_usuario = '"
+                    + obj.getString("key_usuario") + "'" +
+                    " and tipo = 1 ";
+            JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
+            obj.put("data", data);
+            obj.put("estado", "exito");
+        } catch (Exception e) {
+            obj.put("estado", "error");
+            e.printStackTrace();
+        }
+    }
+
+    public void getAllServicio(JSONObject obj, SSSessionAbstract sesion) {
+        try {
+            String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" + component
+                    + ".*)) as json from " + component + " where " + component + ".estado = 1 and key_usuario = '"
+                    + obj.getString("key_usuario") + "'" +
+                    " and tipo = 2 ";
+            JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
+            obj.put("data", data);
+            obj.put("estado", "exito");
+        } catch (Exception e) {
+            obj.put("estado", "error");
+            e.printStackTrace();
+        }
+    }
+
     public void registro(JSONObject obj, SSSessionAbstract sesion) {
         try {
             JSONObject data = obj.getJSONObject("data");
@@ -44,7 +80,6 @@ public class servicio {
             data.put("estado", 1);
 
             SPGConect.insertArray(component, new JSONArray().put(data));
-
             obj.put("data", data);
             obj.put("estado", "exito");
         } catch (Exception e) {

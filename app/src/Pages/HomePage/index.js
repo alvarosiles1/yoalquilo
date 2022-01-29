@@ -64,9 +64,14 @@ class HomePage extends Component {
         })
     }
     render() {
+
+        // SNavigation.navigate("template", { key: "asdasdasd" });
+        // return null;
+
         if (!usuario.Actions.validateSession(this.props)) {
             return <SLoad />
         }
+
         return (
             <>
                 <Barra />
@@ -85,7 +90,9 @@ class HomePage extends Component {
         );
     }
 }
+// const initStates = 'hola';
 const initStates = (state) => {
     return { state }
 };
 export default connect(initStates)(HomePage);
+// export default HomePage;
