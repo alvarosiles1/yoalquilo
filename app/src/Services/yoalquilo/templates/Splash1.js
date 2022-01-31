@@ -9,6 +9,7 @@ class Splash1 extends Component {
 		};
 	}
 
+
 	getForm() {
 		return <SForm
 			ref={(ref) => { this.form = ref; }}

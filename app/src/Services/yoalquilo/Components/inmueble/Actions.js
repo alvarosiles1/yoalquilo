@@ -1,6 +1,6 @@
 import SSocket from 'servisofts-socket';
 import Parent from './index';
-import Service from '../../index';
+// import Service from '../../index';
 
 export default class Actions {
     static _getReducer = (props) => {

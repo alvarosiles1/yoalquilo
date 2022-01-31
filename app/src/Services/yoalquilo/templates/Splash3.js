@@ -9,7 +9,6 @@ class Splash3 extends Component {
 		};
 	}
 
-
 	render() {
 		return (
 			<SPage title={'Paso 3'} disableScroll>

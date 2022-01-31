@@ -50,7 +50,7 @@ class lista extends Component {
                 <SView col={'xs-6 md-4 lg-3 xl-2'} row center border={'transparent'}  >
 
                     <SView width={130} height={150} row center
-                        onPress={() => { SNavigation.navigate('menu', { pipoca: key }) }}>
+                        onPress={() => { SNavigation.navigate('inmueble/perfil', { pipoca: key }) }}>
                         <SView style={{
                             width: 120, height: 120, borderRadius: 20, backgroundColor: "#F6F6F6",
                         }} center >

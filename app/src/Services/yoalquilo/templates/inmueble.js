@@ -44,7 +44,7 @@ const INMUEBLES = {
 	},
 }
 
-class Menu_Inmueble extends Component {
+class template extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -127,4 +127,4 @@ class Menu_Inmueble extends Component {
 const initStates = (state) => {
 	return { state }
 };
-export default connect(initStates)(Menu_Inmueble);
+export default connect(initStates)(template);

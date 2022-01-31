@@ -1,11 +1,13 @@
-const component = "inquilino"; // no te olvides de cambiar ******************************************
+//  COMPONENT CONFIG
+const component = "inmueble"; // COMPONENT NAME
 const version = "1.0";
 // ---------------------------------------
 import Actions from "./Actions";
 import Reducer from "./Reducer";
+
 import Lista from "./Pages/Lista";
 import Registro from "./Pages/Registro";
-import Subordinado from "./Pages/Subordinado";
+import Perfil from "./Pages/Perfil";
 
 export default {
     component,
@@ -16,7 +18,7 @@ export default {
     },
     Pages: {
         [component]: Lista,
+        [component + "/perfil"]: Perfil,
         [component + "/registro"]: Registro,
-        [component + "/subordinado"]: Subordinado,
     }
 }
