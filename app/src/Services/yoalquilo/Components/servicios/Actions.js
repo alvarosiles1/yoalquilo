@@ -1,28 +1,38 @@
 import SSocket from 'servisofts-socket';
 import Parent from './index';
-import Service from '../../index';
+// import Service from '../../index';
 
 export default class Actions {
+
+
+    static getIconServicios(tipo) {
+        switch (tipo) {
+            case "ac":
+                return "IconServicioAc";
+            case "garage":
+                return "IconServicioGarage";
+            case "llave":
+                return "IconServicioKey";
+            case "tv":
+                return "IconServicioTv";
+            case 'wifi':
+                return "IconServicioWifi";
+            case "lavadora":
+                return "IconServicioLavadora";
+            case "escoba":
+                return "IconServicioEscoba";
+            default:
+                return "IconServicioEscoba";
+        }
+    }
+
+
     static _getReducer = (props) => {
         return props.state[Parent.component + "Reducer"];
     }
 
-    static getAllByTipo = (props) => {
-        var reducer = Actions._getReducer(props);
-        var data = reducer.activas;
-        if (!data) {
-            if (reducer.estado == "cargando") return null;
-            SSocket.send({
-                component: Parent.component,
-                version: Parent.version,
-                type: "getAllByTipo",
-                estado: "cargando",
-                key_usuario: props.state.usuarioReducer.usuarioLog.key,
-            })
-            return null;
-        }
-        return data;
-    }
+
+
 
     static getAll = (props) => {
         var reducer = Actions._getReducer(props);
@@ -42,7 +52,7 @@ export default class Actions {
     }
 
     static getByKey = (key, props) => {
-        var data = Actions.getAllActivas(props);
+        var data = Actions.getAll(props);
         if (!data) return null;
         return data[key];
     }

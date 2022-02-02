@@ -18,6 +18,15 @@ public class Manejador {
         }
         if (!obj.isNull("component")) {
             switch (obj.getString("component")) {
+
+                case "inmueble":
+                    new inmueble(obj, session);
+                    break;
+
+                case "servicios":
+                    new servicios(obj, session);
+                    break;
+
                 case "empresa":
                     new empresa(obj, session);
                     break;
@@ -26,18 +35,11 @@ public class Manejador {
                     new sucursal(obj, session);
                     break;
 
-                case "servicios":
-                    new servicios(obj, session);
-                    break;
-
                 case "subordinado":
                     new subordinado(obj, session);
                     break;
                 case "cliente":
                     new cliente(obj, session);
-                    break;
-                case "inmueble":
-                    new inmueble(obj, session);
                     break;
 
             }

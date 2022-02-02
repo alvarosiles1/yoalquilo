@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-
-
-
 import { SHr, SIcon, SNavigation, SPage, SText, STheme, SLoad, SView } from 'servisofts-component';
-import inmueble from '../../../Components/inmueble';
+import inmueble from '..';
 
 
 class Perfil extends Component {
@@ -13,7 +10,7 @@ class Perfil extends Component {
         super(props);
         this.state = {
         };
-        this.key = SNavigation.getParam("pipoca");
+        this.key_inmueble = SNavigation.getParam("key_inmueble");
 
     }
 
@@ -39,8 +36,8 @@ class Perfil extends Component {
     getPerfil() {
 
         this.data = {};
-        if (this.key) {
-            this.data = inmueble.Actions.getByKey(this.key, this.props);
+        if (this.key_inmueble) {
+            this.data = inmueble.Actions.getByKey(this.key_inmueble, this.props);
             if (!this.data) return <SLoad />
         }
 
@@ -50,7 +47,7 @@ class Perfil extends Component {
                 <SView col={'xs-8'} row center>
                     <SView col={'xs-5 xl-2'} row center  >
                         <SView style={{ width: 120, height: 120, }} row center >
-                            <SIcon name={this.getIcon(this.data.tipo)} width={80} height={80} fill={'yellow'} />
+                            <SIcon name={inmueble.Actions.getIcon(this.data.tipo)} width={80} height={80} fill={STheme.color.primary} />
                         </SView>
                     </SView>
                     <SView col={'xs-7'} row center  >
@@ -59,7 +56,6 @@ class Perfil extends Component {
                                 Tipo: {this.data.tipo} </SText>
                             <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
                                 Descripcion: {this.data.descripcion} </SText>
-
                             <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
                                 dirección: {this.data.direccion} </SText>
                         </SView>
@@ -67,7 +63,7 @@ class Perfil extends Component {
                 </SView>
 
                 <SView col={'xs-4'} row center>
-                    <SView width={100} height={30} row center onPress={() => { SNavigation.navigate('inmueble/registro', { pollo: this.key }) }}>
+                    <SView width={100} height={30} row center onPress={() => { SNavigation.navigate('inmueble/registro', { key_inmueble: this.key_inmueble }) }}>
                         <SView col={'xs-12'} height style={{
                             borderRadius: 20, backgroundColor: "#F6F6F6",
                         }} center >
@@ -86,11 +82,11 @@ class Perfil extends Component {
         </>
     }
 
-    getList(icono, descripcion, url) {
+    getList(icono, descripcion, url, prop) {
         return <>
 
             <SView col={'xs-6 md-4 lg-3 xl-3'} row center border={'transparent'}  >
-                <SView width={130} height={150} row center onPress={() => { SNavigation.navigate(url) }}>
+                <SView width={130} height={150} row center onPress={() => { SNavigation.navigate(url, prop) }}>
                     <SView style={{
                         width: 120, height: 120, borderRadius: 20, backgroundColor: "#F6F6F6",
                     }} center >
@@ -111,8 +107,8 @@ class Perfil extends Component {
     render() {
 
         this.data = {};
-        if (this.key) {
-            this.data = inmueble.Actions.getByKey(this.key, this.props);
+        if (this.key_inmueble) {
+            this.data = inmueble.Actions.getByKey(this.key_inmueble, this.props);
             if (!this.data) return <SLoad />
         }
 
@@ -137,8 +133,9 @@ class Perfil extends Component {
                     </SView>
 
                     <SView col={"xs-12 md-10 lg-8 xl-6 "} row center   >
-                        {this.getList('IMenuHabitacion', 'Habitación', 'splash2')}
-                        {this.getList('IMenuServicio', 'Servicios', 'splash2')}
+                        {/* {this.getList('IMenuHabitacion', 'Habitación', 'habitacion')} */}
+                        {this.getList('IMenuHabitacion', 'Habitación', 'habitacion', { key_inmueble: this.key_inmueble })}
+                        {this.getList('IMenuServicio', 'Servicios', 'servicios', { key_inmueble: this.key_inmueble })}
                         {this.getList('IMenuInquilino', 'Inquilino', 'inquilino')}
                         {this.getList('IMenuPago', 'Pago', 'splash2')}
                         {this.getList('IMenuReserva', 'Reserva', 'splash2')}

@@ -9,7 +9,7 @@ class registro extends Component {
         super(props);
         this.state = {
         };
-        this.key = SNavigation.getParam("pollo");
+        this.key = SNavigation.getParam("key_inmueble");
     }
     getForm() {
         this.data = {};

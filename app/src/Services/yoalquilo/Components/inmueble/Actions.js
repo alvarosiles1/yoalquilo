@@ -3,6 +3,27 @@ import Parent from './index';
 // import Service from '../../index';
 
 export default class Actions {
+
+
+    static getIcon(tipo) {
+        switch (tipo) {
+            case "condominio":
+                return "IconMenuCondominio";
+            case "edificio":
+                return "IconMenuEdificio";
+            case "casa":
+                return "IconMenuCasa";
+            case "hotel":
+                return "IconMenuHotel";
+            case 'hostal':
+                return "IconMenuHotel";
+            case "motel":
+                return "IconMenuMotel";
+            default:
+                return "YAHome";
+        }
+    }
+
     static _getReducer = (props) => {
         return props.state[Parent.component + "Reducer"];
     }

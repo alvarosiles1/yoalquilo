@@ -64,6 +64,7 @@ class HomePage extends Component {
         })
     }
     render() {
+        // SNavigation.navigate("inmueble");
 
         // SNavigation.navigate("template", { key: "asdasdasd" });
         // return null;
@@ -84,7 +85,7 @@ class HomePage extends Component {
                     </SView>
 
                 </SPage> <FloatButtom onPress={() => {
-                    SNavigation.navigate("splash1")
+                    SNavigation.navigate("inmueble")
                 }} />
             </>
         );

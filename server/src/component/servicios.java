@@ -14,12 +14,14 @@ public class servicios {
             case "getAll":
                 getAll(obj, sesion);
                 break;
-            case "getAllHabitacion":
-                getAllHabitacion(obj, sesion);
-                break;
-            case "getAllServicio":
-                getAllServicio(obj, sesion);
-                break;
+
+            // case "getAllHabitacion":
+            // getAllHabitacion(obj, sesion);
+            // break;
+            // case "getAllServicio":
+            // getAllServicio(obj, sesion);
+            // break;
+
             case "registro":
                 registro(obj, sesion);
                 break;
@@ -42,35 +44,39 @@ public class servicios {
         }
     }
 
-    public void getAllHabitacion(JSONObject obj, SSSessionAbstract sesion) {
-        try {
-            String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" + component
-                    + ".*)) as json from " + component + " where " + component + ".estado = 1 and key_usuario = '"
-                    + obj.getString("key_usuario") + "'" +
-                    " and tipo = 1 ";
-            JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
-            obj.put("data", data);
-            obj.put("estado", "exito");
-        } catch (Exception e) {
-            obj.put("estado", "error");
-            e.printStackTrace();
-        }
-    }
+    // public void getAllHabitacion(JSONObject obj, SSSessionAbstract sesion) {
+    // try {
+    // String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" +
+    // component
+    // + ".*)) as json from " + component + " where " + component + ".estado = 1 and
+    // key_usuario = '"
+    // + obj.getString("key_usuario") + "'" +
+    // " and tipo = 1 ";
+    // JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
+    // obj.put("data", data);
+    // obj.put("estado", "exito");
+    // } catch (Exception e) {
+    // obj.put("estado", "error");
+    // e.printStackTrace();
+    // }
+    // }
 
-    public void getAllServicio(JSONObject obj, SSSessionAbstract sesion) {
-        try {
-            String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" + component
-                    + ".*)) as json from " + component + " where " + component + ".estado = 1 and key_usuario = '"
-                    + obj.getString("key_usuario") + "'" +
-                    " and tipo = 2 ";
-            JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
-            obj.put("data", data);
-            obj.put("estado", "exito");
-        } catch (Exception e) {
-            obj.put("estado", "error");
-            e.printStackTrace();
-        }
-    }
+    // public void getAllServicio(JSONObject obj, SSSessionAbstract sesion) {
+    // try {
+    // String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" +
+    // component
+    // + ".*)) as json from " + component + " where " + component + ".estado = 1 and
+    // key_usuario = '"
+    // + obj.getString("key_usuario") + "'" +
+    // " and tipo = 2 ";
+    // JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
+    // obj.put("data", data);
+    // obj.put("estado", "exito");
+    // } catch (Exception e) {
+    // obj.put("estado", "error");
+    // e.printStackTrace();
+    // }
+    // }
 
     public void registro(JSONObject obj, SSSessionAbstract sesion) {
         try {

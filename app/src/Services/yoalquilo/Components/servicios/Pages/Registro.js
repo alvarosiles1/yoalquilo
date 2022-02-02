@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SForm, SLoad, SNavigation, SPage, SText } from 'servisofts-component';
+import servicios from '..';
 
-import servicios from '../../servicios';
 class Registro extends Component {
 	constructor(props) {
 		super(props);
@@ -10,14 +10,16 @@ class Registro extends Component {
 		};
 		this.key_inmueble = SNavigation.getParam("key_inmueble");
 
-	}
-	getForm() {
+		this.key = SNavigation.getParam("key");
 
-		// this.data = {};
-		// if (this.key_inmueble) {
-		// 	this.data = servicios.Actions.getByKey(this.key_inmueble, this.props);
-		// 	if (!this.data) return <SLoad />
-		// }
+	}
+
+	getForm() {
+		this.data = {};
+		if (this.key) {
+			this.data = servicios.Actions.getByKey(this.key, this.props);
+			if (!this.data) return <SLoad />
+		}
 
 
 		return <SForm
@@ -26,31 +28,29 @@ class Registro extends Component {
 				customStyle: "yoalquilo"
 			}}
 			inputs={{
-
-				Inmueble: { label: 'obtengo key inmueble', type: 'text', isRequired: true, defaultValue: this.data?.key_inmueble },
 				descripcion: { label: 'Descripcion', type: 'text', isRequired: true, defaultValue: this.data?.descripcion },
 				precio: { label: 'Precio', type: 'text', isRequired: true, defaultValue: this.data?.precio },
+				// estado_servicio: {
+				// 	label: 'Tipo', type: 'select', defaultValue: '' + this.data.tipo + '', isRequired: true, options: [
+				// 		{ key: "", content: " " },
+				// 		{ key: "0", content: "desactivo" },
+				// 		{ key: "1", content: "activo" },
 
-				estado_servicio: {
-					label: 'Estado', type: 'select', defaultValue: '' + this.data.estado_servicio + '', isRequired: true, options: [
-						{ key: "", content: " " },
-						{ key: "1", content: "Diponible" },
-						{ key: "0", content: "ocupado" },
-						{ key: "2", content: "Reparación" },
-
-					]
-				},
+				// 	]
+				// },
 			}}
 			onSubmitName={"registrar"}
 			onSubmit={(values) => {
-
-				if (this.key_inmueble) {
+				if (this.key) {
 					servicios.Actions.editar({ ...this.data, ...values }, this.props);
+					// Parent.Actions.editar({ ...this.data, ...values }, this.props);
 				} else {
+
 					values.key_inmueble = this.key_inmueble;
-					values.tipo = 1;
+					values.tipo = 2;
 					values.estado_servicio = 1;
 					servicios.Actions.registro(values, this.props);
+					// Parent.Actions.registro(values, this.props);
 				}
 			}}
 		/>
@@ -63,11 +63,12 @@ class Registro extends Component {
 			SNavigation.goBack();
 		}
 		return (
-			<SPage title={'Registro'} center>
+			<SPage title={"Registro"} center>
 				{this.getForm()}
 			</SPage>
 		);
 	}
+
 }
 const initStates = (state) => {
 	return { state }

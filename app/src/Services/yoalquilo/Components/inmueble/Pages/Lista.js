@@ -12,24 +12,7 @@ class lista extends Component {
         };
     }
 
-    getIcon(tipo) {
-        switch (tipo) {
-            case "condominio":
-                return "IconMenuCondominio";
-            case "edificio":
-                return "IconMenuEdificio";
-            case "casa":
-                return "IconMenuCasa";
-            case "hotel":
-                return "IconMenuHotel";
-            case 'hostal':
-                return "IconMenuHotel";
-            case "motel":
-                return "IconMenuMotel";
-            default:
-                return "YAHome";
-        }
-    }
+
 
 
 
@@ -50,7 +33,7 @@ class lista extends Component {
                 <SView col={'xs-6 md-4 lg-3 xl-2'} row center border={'transparent'}  >
 
                     <SView width={130} height={150} row center
-                        onPress={() => { SNavigation.navigate('inmueble/perfil', { pipoca: key }) }}>
+                        onPress={() => { SNavigation.navigate('inmueble/perfil', { key_inmueble: key }) }}>
                         <SView style={{
                             width: 120, height: 120, borderRadius: 20, backgroundColor: "#F6F6F6",
                         }} center >
@@ -58,7 +41,7 @@ class lista extends Component {
                             <SView width={'100%'} height={'100%'} style={{
                                 position: "absolute",
                             }} center>
-                                <SIcon name={this.getIcon(obj.tipo)} width={80} height={80} fill={STheme.color.primary} />
+                                <SIcon name={inmueble.Actions.getIcon(obj.tipo)} width={80} height={80} fill={STheme.color.primary} />
                             </SView>
 
                             <SIcon name={'IconMenuBg'} width={"100%"} />
