@@ -9,9 +9,7 @@ class Registro extends Component {
 		this.state = {
 		};
 		this.key_inmueble = SNavigation.getParam("key_inmueble");
-
 		this.key = SNavigation.getParam("key");
-
 	}
 
 	getForm() {
@@ -21,7 +19,6 @@ class Registro extends Component {
 			if (!this.data) return <SLoad />
 		}
 
-
 		return <SForm
 			col={"xs-11 sm-10 md-8 lg-6 xl-4"}
 			inputProps={{
@@ -30,27 +27,25 @@ class Registro extends Component {
 			inputs={{
 				descripcion: { label: 'Descripcion', type: 'text', isRequired: true, defaultValue: this.data?.descripcion },
 				precio: { label: 'Precio', type: 'text', isRequired: true, defaultValue: this.data?.precio },
-				// estado_servicio: {
-				// 	label: 'Tipo', type: 'select', defaultValue: '' + this.data.tipo + '', isRequired: true, options: [
-				// 		{ key: "", content: " " },
-				// 		{ key: "0", content: "desactivo" },
-				// 		{ key: "1", content: "activo" },
-
-				// 	]
-				// },
+				estado_servicio: {
+					label: 'Tipo', type: 'select',
+					defaultValue: '' + this.data?.estado_servicio + '', isRequired: true, options: [
+						// { key: "", content: "vacio" },
+						{ key: "1", content: "activo" },
+						{ key: "0", content: "desactivo" },
+					]
+				},
 			}}
 			onSubmitName={"registrar"}
 			onSubmit={(values) => {
 				if (this.key) {
 					servicios.Actions.editar({ ...this.data, ...values }, this.props);
-					// Parent.Actions.editar({ ...this.data, ...values }, this.props);
 				} else {
 
 					values.key_inmueble = this.key_inmueble;
 					values.tipo = 2;
-					values.estado_servicio = 1;
+					// values.estado_servicio = 1;
 					servicios.Actions.registro(values, this.props);
-					// Parent.Actions.registro(values, this.props);
 				}
 			}}
 		/>
@@ -63,7 +58,7 @@ class Registro extends Component {
 			SNavigation.goBack();
 		}
 		return (
-			<SPage title={"Registro"} center>
+			<SPage title={"Registro Servicio"} center>
 				{this.getForm()}
 			</SPage>
 		);

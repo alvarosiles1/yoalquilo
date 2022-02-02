@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SHr, SIcon, SNavigation, SPage, SText, STheme, SLoad, SView } from 'servisofts-component';
+import cliente from '..';
 import FloatButtom from '../../../../../Components/FloatButtom';
-import Servicios from '..';
 
 class Lista extends Component {
 	constructor(props) {
@@ -10,23 +10,21 @@ class Lista extends Component {
 		this.state = {
 		};
 		this.key_inmueble = SNavigation.getParam("key_inmueble");
-	}
 
-	getListServicios = () => {
-		var lista = Servicios.Actions.getAll(this.props);
+	}
+	getListInquilino = () => {
+		var lista = cliente.Actions.getAll(this.props);
 		if (!lista) return <SText>Cargando</SText>
 
 		if (Object.keys(lista).length == 0) {
-			SNavigation.navigate("servicios/registro", { key_inmueble: this.key_inmueble });
-			return <SText>No hay servicio</SText>
+			SNavigation.navigate("cliente/registro", { key_inmueble: this.key_inmueble });
+			return <SText>No hay inquilinos</SText>
 		}
 		return Object.keys(lista).map(key => {
-			if (lista[key].key_inmueble != this.key_inmueble) {
-				SNavigation.navigate("servicios/registro", { key_inmueble: this.key_inmueble });
-				return <SText>No habitacion</SText>
-			}
-
-			if (lista[key].tipo != '2') return <SText>No hay servicios</SText>
+			// if (lista[key].key_inmueble != this.key_inmueble) {
+			// 	SNavigation.navigate("cliente/registro", { key_inmueble: this.key_inmueble });
+			// 	return <SText>No hay inquilinos</SText>
+			// }
 			var obj = lista[key];
 			return <>
 				<SView col={'xs-11 md-8 lg-6 xl-4'} row center border={'#BBA4A4'} style={{ borderRadius: 8, }}  >
@@ -62,18 +60,14 @@ class Lista extends Component {
 
 	render() {
 		return (<>
-			<SPage title={'Mis servicios'}>
-
+			<SPage title={'Lista Inquilinos'}>
 				<SView col={'xs-12'} height={40} />
 				<SView col={"xs-12 "} center>
-					{this.getListServicios()}
+					{this.getListInquilino()}
 				</SView>
-
 			</SPage>
-
 			<FloatButtom onPress={() => {
 				SNavigation.navigate("servicios/registro", { key_inmueble: this.key_inmueble })
-
 			}} />	</>
 		);
 	}

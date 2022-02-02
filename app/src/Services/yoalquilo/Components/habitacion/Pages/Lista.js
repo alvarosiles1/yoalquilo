@@ -15,17 +15,28 @@ class Lista extends Component {
 
 	getHabitaciones() {
 
-		var data = servicios.Actions.getAll(this.props);
-
 		var lista = servicios.Actions.getAll(this.props);
+
 		if (!lista) return <SText>Cargando</SText>
-		// if (Object.keys(lista).length == 0) {
-		// 	SNavigation.navigate("inmueble/registro");
-		// 	return <SText>No hay inmuebles</SText>
+
+		// let listaDeTiposFiltrados = Object.values(lista).filter(item => item.tipo == 1);
+		// if (Object.keys(listaDeTiposFiltrados).length == 0) {
+		// 	if (lista[key].key_inmueble == this.key_inmueble)
+		// 		SNavigation.navigate("habitacion/registro", { key_inmueble: this.key_inmueble });
+		// 	return <SText>No hay servicio</SText>
 		// }
+		if (Object.keys(lista).length == 0) {
+			SNavigation.navigate("habitacion/registro", { key_inmueble: this.key_inmueble });
+			return <SText>No hay habitacion</SText>
+		}
 
 		return Object.keys(lista).map(key => {
-			if (lista[key].tipo != '1') return null
+			if (lista[key].key_inmueble != this.key_inmueble) {
+				SNavigation.navigate("habitacion/registro", { key_inmueble: this.key_inmueble });
+				return <SText>No habitacion</SText>
+			}
+			if (lista[key].tipo != '1') return <SText>No hay habitacion</SText>
+
 			var obj = lista[key];
 			return <>
 				<SView col={'xs-11 md-8 lg-6 xl-4'} row center border={'#BBA4A4'} style={{ borderRadius: 8, }}  >
@@ -39,13 +50,15 @@ class Lista extends Component {
 							<SView col={'xs-12 '}   >
 								< SText fontSize={18} font={"Roboto"} color={'#111111'} Bold > {obj.descripcion}  </SText>
 								< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} > Precio {lista[key].precio} Bs  </SText>
+								< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} > estado {lista[key].estado_servicio} </SText>
 							</SView>
 						</SView>
 					</SView>
 					<SView col={'xs-2'} row center>
 						<SView width={100} height={30} row center onPress={() => {
 
-							SNavigation.navigate("habitacion/registro", { key_inmueble: this.key_inmueble })
+							SNavigation.navigate('servicios/registro', { key_inmueble: this.key_inmueble, key: obj.key })
+
 
 						}}>
 							<SIcon name={'IconEdit'} fill='red' width={18} />
