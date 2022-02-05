@@ -1,16 +1,19 @@
 package component;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import Server.SSSAbstract.SSSessionAbstract;
 import Servisofts.SPGConect;
 
-public class empresa_administrador {
+public class cliente_foto {
 
-    private final static String component = "empresa_administrador";
+    private final static String component = "cliente_foto";
 
-    public empresa_administrador(JSONObject obj, SSSessionAbstract sesion) {
+    public cliente_foto(JSONObject obj, SSSessionAbstract sesion) {
         switch (obj.getString("type")) {
             case "getAll":
                 getAll(obj, sesion);
@@ -39,17 +42,13 @@ public class empresa_administrador {
 
     public void registro(JSONObject obj, SSSessionAbstract sesion) {
         try {
-            // DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
-            // String fecha_on = formatter.format(new Date());
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
 
             JSONObject data = obj.getJSONObject("data");
             data.put("key", UUID.randomUUID().toString());
-            data.put("fecha_on", "now()");
+            data.put("key_usuario", obj.getString("key_usuario"));
+            data.put("fecha_on", formatter.format(new Date()));
             data.put("estado", 1);
-
-            // data.put("key_usuario", 1);
-            // data.put("fecha_on", 1);
-            // data.put("estado", 1);
 
             SPGConect.insertArray(component, new JSONArray().put(data));
 

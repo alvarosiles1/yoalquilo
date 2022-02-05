@@ -1,5 +1,8 @@
 package component;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,9 +42,12 @@ public class cliente {
 
     public void registro(JSONObject obj, SSSessionAbstract sesion) {
         try {
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
+
             JSONObject data = obj.getJSONObject("data");
             data.put("key", UUID.randomUUID().toString());
-            data.put("fecha_on", "now()");
+            data.put("key_usuario", obj.getString("key_usuario"));
+            data.put("fecha_on", formatter.format(new Date()));
             data.put("estado", 1);
 
             SPGConect.insertArray(component, new JSONArray().put(data));

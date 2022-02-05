@@ -14,14 +14,6 @@ public class servicios {
             case "getAll":
                 getAll(obj, sesion);
                 break;
-
-            // case "getAllHabitacion":
-            // getAllHabitacion(obj, sesion);
-            // break;
-            // case "getAllServicio":
-            // getAllServicio(obj, sesion);
-            // break;
-
             case "registro":
                 registro(obj, sesion);
                 break;
@@ -36,6 +28,35 @@ public class servicios {
             String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" + component
                     + ".*)) as json from " + component + " where " + component + ".estado = 1";
             JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
+            obj.put("data", data);
+            obj.put("estado", "exito");
+        } catch (Exception e) {
+            obj.put("estado", "error");
+            e.printStackTrace();
+        }
+    }
+
+    public void registro(JSONObject obj, SSSessionAbstract sesion) {
+        try {
+            JSONObject data = obj.getJSONObject("data");
+            data.put("key", UUID.randomUUID().toString());
+            data.put("fecha_on", "now()");
+            data.put("estado", 1);
+
+            SPGConect.insertArray(component, new JSONArray().put(data));
+            obj.put("data", data);
+            obj.put("estado", "exito");
+        } catch (Exception e) {
+            obj.put("estado", "error");
+            e.printStackTrace();
+        }
+    }
+
+    public void editar(JSONObject obj, SSSessionAbstract sesion) {
+        try {
+
+            JSONObject data = obj.getJSONObject("data");
+            SPGConect.editObject(component, data);
             obj.put("data", data);
             obj.put("estado", "exito");
         } catch (Exception e) {
@@ -77,34 +98,5 @@ public class servicios {
     // e.printStackTrace();
     // }
     // }
-
-    public void registro(JSONObject obj, SSSessionAbstract sesion) {
-        try {
-            JSONObject data = obj.getJSONObject("data");
-            data.put("key", UUID.randomUUID().toString());
-            data.put("fecha_on", "now()");
-            data.put("estado", 1);
-
-            SPGConect.insertArray(component, new JSONArray().put(data));
-            obj.put("data", data);
-            obj.put("estado", "exito");
-        } catch (Exception e) {
-            obj.put("estado", "error");
-            e.printStackTrace();
-        }
-    }
-
-    public void editar(JSONObject obj, SSSessionAbstract sesion) {
-        try {
-
-            JSONObject data = obj.getJSONObject("data");
-            SPGConect.editObject(component, data);
-            obj.put("data", data);
-            obj.put("estado", "exito");
-        } catch (Exception e) {
-            obj.put("estado", "error");
-            e.printStackTrace();
-        }
-    }
 
 }

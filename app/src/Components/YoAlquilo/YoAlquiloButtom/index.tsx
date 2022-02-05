@@ -22,11 +22,12 @@ export default class YoAlquiloButtom extends Component<YoAlquiloButtom_props> {
         // var bgColor = "blue";
 
         var size = {
-            width: 350,
+            // width: 350,
+            width: '100%',
             height: 50
         }
         if (this.props.small) {
-            size.width = 100;
+            // size.width = 100;
             size.height = 30;
         }
         return (<SView height={size.height} backgroundColor={bgColor} style={{

@@ -1,5 +1,5 @@
 {
-    "nombre":"yoalquilo",
+    "nombre": "yoalquilo",
     "ss": "servisofts.yoalquilo",
     "socket_client": {
         "servicio": {
@@ -35,5 +35,5 @@
         },
         "nombre_jks": "servisofts"
     }
-   
+
 }

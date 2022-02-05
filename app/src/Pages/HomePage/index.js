@@ -85,7 +85,7 @@ class HomePage extends Component {
                     </SView>
 
                 </SPage> <FloatButtom onPress={() => {
-                    SNavigation.navigate("inmueble")
+                    SNavigation.navigate("cliente")
                 }} />
             </>
         );

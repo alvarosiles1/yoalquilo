@@ -136,7 +136,7 @@ class Perfil extends Component {
                         {/* {this.getList('IMenuHabitacion', 'Habitación', 'habitacion')} */}
                         {this.getList('IMenuHabitacion', 'Habitación', 'habitacion', { key_inmueble: this.key_inmueble })}
                         {this.getList('IMenuServicio', 'Servicios', 'servicios', { key_inmueble: this.key_inmueble })}
-                        {this.getList('IMenuInquilino', 'Inquilino', 'inquilino')}
+                        {this.getList('IMenuInquilino', 'Inquilino', 'cliente', { key_inmueble: this.key_inmueble })}
                         {this.getList('IMenuPago', 'Pago', 'splash2')}
                         {this.getList('IMenuReserva', 'Reserva', 'splash2')}
                         {this.getList('IMenuReporte', 'Reporte', 'splash2')}

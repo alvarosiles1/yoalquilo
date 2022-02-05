@@ -33,10 +33,21 @@ import IconServicioGarage, { ReactComponent as IconServicioGarageW } from './svg
 import IconServicioKey, { ReactComponent as IconServicioKeyW } from './svg/iconServicioKey.svg';
 import IconServicioTv, { ReactComponent as IconServicioTvW } from './svg/iconServicioTv.svg';
 import IconServicioWifi, { ReactComponent as IconServicioWifiW } from './svg/iconServicioWifi.svg';
-
-
 import IconServicioLavadora, { ReactComponent as IconServicioLavadoraW } from './svg/iconServicioLavadora.svg';
 import IconServicioEscoba, { ReactComponent as IconServicioEscobaW } from './svg/iconServicioEscoba.svg';
+
+import IconClienteUser, { ReactComponent as IconClienteUserW } from './svg/iconClienteUser.svg';
+import IconClienteCi1, { ReactComponent as IconClienteCi1W } from './svg/iconClienteCi1.svg';
+import IconClienteCi2, { ReactComponent as IconClienteCi2W } from './svg/iconClienteCi2.svg';
+import IconClienteFotoPlus, { ReactComponent as IconClienteFotoPlusW } from './svg/iconClienteFotoPlus.svg';
+import IconClienteCiNro, { ReactComponent as IconClienteCiNroW } from './svg/iconClienteCiNro.svg';
+import IconClientePais, { ReactComponent as IconClientePaisW } from './svg/iconClientePais.svg';
+import IconClienteTelefono, { ReactComponent as IconClienteTelefonoW } from './svg/iconClienteTelefono.svg';
+import IconClienteWasap, { ReactComponent as IconClienteWasapW } from './svg/iconClienteWasap.svg';
+import IconClienteSubordinado, { ReactComponent as IconClienteSubordinadoW } from './svg/iconClienteSubordinado.svg';
+import IconClienteCalendar, { ReactComponent as IconClienteCalendarW } from './svg/iconClienteCalendar.svg';
+
+import IconClientePlus, { ReactComponent as IconClientePlusW } from './svg/iconClientePlus.svg';
 
 
 const Assets: SAssets = {
@@ -50,6 +61,10 @@ const Assets: SAssets = {
         "IconMenuHotel": { Native: IconMenuHotel, Web: IconMenuHotelW },
         "IconMenuMotel": { Native: IconMenuMotel, Web: IconMenuMotelW },
         "YAHome": { Native: YAHome, Web: YAHomeW },
+
+        "Splash001": { Native: Splash001, Web: Splash001W },
+        "Splash002": { Native: Splash002, Web: Splash002W },
+        "Splash003": { Native: Splash003, Web: Splash003W },
 
         "IMenuHabitacion": { Native: IMenuHabitacion, Web: IMenuHabitacionW },
         "IMenuInmueble": { Native: IMenuInmueble, Web: IMenuInmuebleW },
@@ -66,14 +81,21 @@ const Assets: SAssets = {
         "IconServicioKey": { Native: IconServicioKey, Web: IconServicioKeyW },
         "IconServicioTv": { Native: IconServicioTv, Web: IconServicioTvW },
         "IconServicioWifi": { Native: IconServicioWifi, Web: IconServicioWifiW },
-
         "IconServicioLavadora": { Native: IconServicioLavadora, Web: IconServicioLavadoraW },
         "IconServicioEscoba": { Native: IconServicioEscoba, Web: IconServicioEscobaW },
 
-        "Splash001": { Native: Splash001, Web: Splash001W },
-        "Splash002": { Native: Splash002, Web: Splash002W },
-        "Splash003": { Native: Splash003, Web: Splash003W },
+        "IconClienteUser": { Native: IconClienteUser, Web: IconClienteUserW },
+        "IconClienteCi1": { Native: IconClienteCi1, Web: IconClienteCi1W },
+        "IconClienteCi2": { Native: IconClienteCi2, Web: IconClienteCi2W },
+        "IconClienteFotoPlus": { Native: IconClienteFotoPlus, Web: IconClienteFotoPlusW },
+        "IconClienteCiNro": { Native: IconClienteCiNro, Web: IconClienteCiNroW },
+        "IconClientePais": { Native: IconClientePais, Web: IconClientePaisW },
+        "IconClienteTelefono": { Native: IconClienteTelefono, Web: IconClienteTelefonoW },
+        "IconClienteWasap": { Native: IconClienteWasap, Web: IconClienteWasapW },
+        "IconClienteSubordinado": { Native: IconClienteSubordinado, Web: IconClienteSubordinadoW },
+        "IconClienteCalendar": { Native: IconClienteCalendar, Web: IconClienteCalendarW },
 
+        "IconClientePlus": { Native: IconClientePlus, Web: IconClientePlusW },
 
 
     }

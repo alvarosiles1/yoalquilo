@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SForm, SHr, SIcon, SInput, SPage, SPopup, SText, STheme, SView } from 'servisofts-component';
-import YoAlquilo from '../../../../../Components/YoAlquilo';
+import YoAlquilo from '../../../Components/YoAlquilo';
 
-class Registro extends Component {
+
+
+class templateCliente extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -262,4 +264,4 @@ class Registro extends Component {
 const initStates = (state) => {
 	return { state }
 };
-export default connect(initStates)(Registro);
+export default connect(initStates)(templateCliente);

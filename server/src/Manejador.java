@@ -4,11 +4,10 @@ import org.json.JSONObject;
 import Server.SSSAbstract.SSSessionAbstract;
 import Servisofts.SConsole;
 import component.cliente;
-import component.empresa;
+import component.cliente_foto;
 import component.inmueble;
 import component.servicios;
 import component.subordinado;
-import component.sucursal;
 
 public class Manejador {
     public static void onMessage(JSONObject obj, SSSessionAbstract session) {
@@ -27,19 +26,16 @@ public class Manejador {
                     new servicios(obj, session);
                     break;
 
-                case "empresa":
-                    new empresa(obj, session);
+                case "cliente":
+                    new cliente(obj, session);
                     break;
 
-                case "sucursal":
-                    new sucursal(obj, session);
+                case "cliente_foto":
+                    new cliente_foto(obj, session);
                     break;
 
                 case "subordinado":
                     new subordinado(obj, session);
-                    break;
-                case "cliente":
-                    new cliente(obj, session);
                     break;
 
             }

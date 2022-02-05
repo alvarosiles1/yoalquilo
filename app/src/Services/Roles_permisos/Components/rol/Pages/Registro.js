@@ -22,7 +22,7 @@ class Registro extends Component {
                 customStyle: "kolping"
             }}
             inputs={{
-                descripcion: { label: "descripcion", isRequired: true, defaultValue: this.data["descripcion"], icon: <SIcon name={"InputUser"} width={40} height={30} /> },
+                descripcion: { label: "descripcion", isRequired: true, defaultValue: this.data["descripcion"], icon: <SIcon name={"InputUser"} width={5} /> },
             }}
             onSubmit={(values) => {
                 if (this.key) {

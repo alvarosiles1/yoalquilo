@@ -24,6 +24,7 @@ class Registro extends Component {
 			inputProps={{
 				customStyle: "yoalquilo"
 			}}
+
 			inputs={{
 				descripcion: { label: 'Descripcion', type: 'text', isRequired: true, defaultValue: this.data?.descripcion },
 				precio: { label: 'Precio', type: 'text', isRequired: true, defaultValue: this.data?.precio },
