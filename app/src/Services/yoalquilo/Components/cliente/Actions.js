@@ -8,6 +8,7 @@ export default class Actions {
         return props.state[Parent.component + "Reducer"];
     }
 
+
     static getAll = (props) => {
         var reducer = Actions._getReducer(props);
         var data = reducer.data;

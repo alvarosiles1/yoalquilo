@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SHr, SIcon, SNavigation, SPage, SText, STheme, SLoad, SView } from 'servisofts-component';
 import FloatButtom from '../../../../../Components/FloatButtom';
-import Servicios from '..';
+import servicios from '..';
 
 class Lista extends Component {
 	constructor(props) {
@@ -12,30 +12,31 @@ class Lista extends Component {
 		this.key_inmueble = SNavigation.getParam("key_inmueble");
 	}
 
-	getListServicios = () => {
-		var lista = Servicios.Actions.getAll(this.props);
+	getListservicios = () => {
+		var lista = servicios.Actions.getAll(this.props);
 		if (!lista) return <SText>Cargando</SText>
 
-		if (Object.keys(lista).length == 0) {
-			SNavigation.navigate("servicios/registro", { key_inmueble: this.key_inmueble });
+		let listaDeTiposFiltrados = Object.values(lista).filter(item => {
+			if (item.tipo != 2 || item.key_inmueble != this.key_inmueble) {
+				return false;
+			}
+			return true;
+		});
+		if (Object.keys(listaDeTiposFiltrados).length == 0) {
+			SNavigation.replace("servicios/registro", { key_inmueble: this.key_inmueble });
 			return <SText>No hay servicio</SText>
 		}
-		return Object.keys(lista).map(key => {
-			if (lista[key].key_inmueble != this.key_inmueble) {
-				SNavigation.navigate("servicios/registro", { key_inmueble: this.key_inmueble });
-				return <SText>No habitacion</SText>
-			}
 
-			if (lista[key].tipo != '2') return <SText>No hay servicios</SText>
+		return listaDeTiposFiltrados.map(item => {
+			var key = item.key;
+			if (lista[key].tipo != 2) return <SText>No hay servicio</SText>
 			var obj = lista[key];
 			return <>
 				<SView col={'xs-11 md-8 lg-6 xl-4'} row center border={'#BBA4A4'} style={{ borderRadius: 8, }}  >
 					<SView col={'xs-10'} height={60} row center>
 						<SView col={'xs-3 md-2 lg-2 xl-2'} row center>
 							<SView style={{ width: 48, height: 48, borderRadius: 50, backgroundColor: "blue", }} row center >
-
-
-								<SIcon name={Servicios.Actions.getIconServicios(obj.descripcion)} width={20} height={20} fill='white' />
+								<SIcon name={servicios.Actions.getIconservicios(obj.descripcion)} width={20} height={20} fill='white' />
 							</SView>
 						</SView>
 						<SView col={'xs-9 md-10 lg-10 xl-10'} row center  >
@@ -66,7 +67,7 @@ class Lista extends Component {
 
 				<SView col={'xs-12'} height={40} />
 				<SView col={"xs-12 "} center>
-					{this.getListServicios()}
+					{this.getListservicios()}
 				</SView>
 
 			</SPage>

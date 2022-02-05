@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SForm, SHr, SIcon, SInput, SPage, SPopup, SText, STheme, SView } from 'servisofts-component';
+import { SForm, SHr, SIcon, SInput, SNavigation, SPage, SPopup, SText, STheme, SView } from 'servisofts-component';
 import YoAlquilo from '../../../../../Components/YoAlquilo';
 
 class Registro extends Component {
@@ -8,8 +8,8 @@ class Registro extends Component {
 		super(props);
 		this.state = {
 		};
-		// this.key_inmueble = SNavigation.getParam("key_inmueble");
-		// this.key = SNavigation.getParam("key");
+		this.key_inmueble = SNavigation.getParam("key_inmueble");
+		this.key = SNavigation.getParam("key");
 	}
 
 	getheaderPhoto() {

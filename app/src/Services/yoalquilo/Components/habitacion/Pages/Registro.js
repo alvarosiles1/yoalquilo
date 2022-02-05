@@ -31,11 +31,8 @@ class Registro extends Component {
 				precio: { label: 'Precio', type: 'text', isRequired: true, defaultValue: this.data?.precio },
 				estado_servicio: {
 					label: 'Tipo', type: 'select',
-					defaultValue: this.data.estado_servicio, isRequired: true, options: [
-						{ key: "", content: "342" },
-						{
-							key: "1", content: "Diponible"
-						},
+					defaultValue: this.data.estado_servicio ?? 1, isRequired: true, options: [
+						{ key: "1", content: "Diponible" },
 						{ key: "0", content: "ocupado" },
 						{ key: "2", content: "Reparación" },
 
@@ -64,6 +61,9 @@ class Registro extends Component {
 		if (reducer.estado == "exito" && (reducer.type == "registro" || reducer.type == "editar")) {
 			reducer.estado = "";
 			SNavigation.goBack();
+			// SNavigation.navigate("habitacion", { key_inmueble: this.key_inmueble })
+			// SNavigation.replace("habitacion", { key_inmueble: this.key_inmueble });
+
 		}
 		return (
 			<SPage title={'Registro Habitación'} center>

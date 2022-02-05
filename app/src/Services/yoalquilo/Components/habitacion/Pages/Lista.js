@@ -14,9 +14,7 @@ class Lista extends Component {
 	}
 
 	getHabitaciones() {
-
 		var lista = servicios.Actions.getAll(this.props);
-
 		if (!lista) return <SText>Cargando</SText>
 
 		let listaDeTiposFiltrados = Object.values(lista).filter(item => {
@@ -27,16 +25,12 @@ class Lista extends Component {
 		});
 		if (Object.keys(listaDeTiposFiltrados).length == 0) {
 			SNavigation.replace("habitacion/registro", { key_inmueble: this.key_inmueble });
-			return <SText>No hay servicio</SText>
+			return <SText>No hay habitacion</SText>
 		}
-		// if (Object.keys(lista).length == 0) {
-		// 	SNavigation.replace("habitacion/registro", { key_inmueble: this.key_inmueble });
-		// 	return <SText>No hay habitacion</SText>
-		// }
 
 		return listaDeTiposFiltrados.map(item => {
 			var key = item.key;
-			if (lista[key].tipo != '1') return <SText>No hay habitacion</SText>
+			if (lista[key].tipo != 1) return <SText>No hay habitacion</SText>
 
 			var obj = lista[key];
 			return <>

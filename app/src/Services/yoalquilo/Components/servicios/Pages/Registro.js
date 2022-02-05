@@ -28,10 +28,12 @@ class Registro extends Component {
 			inputs={{
 				descripcion: { label: 'Descripcion', type: 'text', isRequired: true, defaultValue: this.data?.descripcion },
 				precio: { label: 'Precio', type: 'text', isRequired: true, defaultValue: this.data?.precio },
+
+
+
 				estado_servicio: {
-					label: 'Tipo', type: 'select',
-					defaultValue: '' + this.data?.estado_servicio + '', isRequired: true, options: [
-						// { key: "", content: "vacio" },
+					label: 'Estado', type: 'select',
+					defaultValue: '1', isRequired: true, options: [
 						{ key: "1", content: "activo" },
 						{ key: "0", content: "desactivo" },
 					]
@@ -45,7 +47,6 @@ class Registro extends Component {
 
 					values.key_inmueble = this.key_inmueble;
 					values.tipo = 2;
-					// values.estado_servicio = 1;
 					servicios.Actions.registro(values, this.props);
 				}
 			}}
@@ -57,6 +58,9 @@ class Registro extends Component {
 		if (reducer.estado == "exito" && (reducer.type == "registro" || reducer.type == "editar")) {
 			reducer.estado = "";
 			SNavigation.goBack();
+			// SNavigation.navigate("servicios", { key_inmueble: this.key_inmueble })
+			// SNavigation.replace("servicios", { key_inmueble: this.key_inmueble });
+
 		}
 		return (
 			<SPage title={"Registro Servicio"} center>

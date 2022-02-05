@@ -5,7 +5,7 @@ import Parent from './index';
 export default class Actions {
 
 
-    static getIconServicios(tipo) {
+    static getIconservicios(tipo) {
         switch (tipo) {
             case "ac":
                 return "IconServicioAc";
