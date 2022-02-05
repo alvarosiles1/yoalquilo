@@ -19,7 +19,7 @@ const Pages: SPageListProps = {
 const Reducers = {
 	...inmueble.Reducers,
 	...servicios.Reducers,
-	...cliente.Pages,
+	...cliente.Reducers,
 
 }
 
