@@ -27,8 +27,7 @@ class Registro extends Component {
 
 			inputs={{
 				descripcion: { label: 'Descripcion', type: 'text', isRequired: true, defaultValue: this.data?.descripcion },
-				precio: { label: 'Precio', type: 'text', isRequired: true, defaultValue: this.data?.precio },
-
+				precio: { label: 'Precio', type: 'money', isRequired: true, defaultValue: this.data?.precio },
 
 
 				estado_servicio: {

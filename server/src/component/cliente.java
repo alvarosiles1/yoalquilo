@@ -47,6 +47,8 @@ public class cliente {
             JSONObject data = obj.getJSONObject("data");
             data.put("key", UUID.randomUUID().toString());
             data.put("key_usuario", obj.getString("key_usuario"));
+            // data.put("fecha_on", "now()");
+
             data.put("fecha_on", formatter.format(new Date()));
             data.put("estado", 1);
 

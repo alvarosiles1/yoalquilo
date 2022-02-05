@@ -56,7 +56,9 @@ class Lista extends Component {
 					</SView>
 					<SView col={'xs-2'} row center>
 						<SView width={100} height={30} row center onPress={() => {
-							SNavigation.navigate('servicios/registro', { key_inmueble: this.key_inmueble, key: obj.key })
+
+
+							SNavigation.navigate('cliente/registro', { key_inmueble: this.key_inmueble, key: obj.key })
 
 						}}>
 							<SIcon name={'IconEdit'} fill='none' width={18} />

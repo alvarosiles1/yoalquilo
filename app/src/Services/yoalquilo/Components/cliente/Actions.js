@@ -45,6 +45,7 @@ export default class Actions {
             }
         })
     }
+
     static editar = (data, props) => {
         SSocket.send({
             component: Parent.component,

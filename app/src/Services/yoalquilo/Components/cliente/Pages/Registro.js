@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SForm, SHr, SIcon, SInput, SNavigation, SPage, SPopup, SText, STheme, SView } from 'servisofts-component';
+import cliente from '..';
 import YoAlquilo from '../../../../../Components/YoAlquilo';
 
 class Registro extends Component {
@@ -55,11 +56,13 @@ class Registro extends Component {
 
 	getForm() {
 
-		// this.data = {};
-		// if (this.key) {
-		// 	this.data = servicios.Actions.getByKey(this.key, this.props);
-		// 	if (!this.data) return <SLoad />
-		// }
+		this.data = {};
+		if (this.key) {
+			this.data = cliente.Actions.getByKey(this.key, this.props);
+			if (!this.data) return <SLoad />
+		}
+
+
 
 		return <>
 
@@ -72,95 +75,63 @@ class Registro extends Component {
 				inputProps={{
 					customStyle: "yoalquilo",
 					color: 'red',
-					// color: '#707070',
-
 					backgroundColor: 'cyan',
 					justifyContent: "space-between"
 				}}
 
-				// <SView col={'xs-6'} height backgroundColor={'trasparent'} row center >
-				// 			<SView width={150} height={150} border={'#606060'} row style={{ borderRadius: 8 }} >
-				// 				<SView col={'xs-12'} height={8} />
-				// 				<SView col={'xs-12'} center backgroundColor={'trasparent'} >
-				// 					<SText font={"Roboto"} col={'xs-9'} center fontSize={13} bold style={{ textTransform: "capitalize" }} >agregar foto reverso</SText>
-				// 				</SView>
-				// 				<SView col={'xs-12'} center backgroundColor={'trasparent'}   >
-				// 					<SIcon name='IconClienteCi2' width={50} height={40} fill={STheme.color.primary} />
-				// 				</SView>
-				// 				<SView col={'xs-12'} row backgroundColor={'trasparent'}  >
-				// 					<SView col={'xs-8'} />
-				// 					<SView col={'xs-4'} >
-				// 						<SIcon name='IconClienteFotoPlus' width={20} height={25} fill={STheme.color.primary} stroke={STheme.color.primary} />
-				// 					</SView>
-				// 				</SView>
-				// 				<SView col={'xs-12'} height={8} />
-				// 			</SView>
-				// 		</SView>
-
-
-
 				inputs={{
-					foto_p: {
-						type: "image", isRequired: false, col: "xs-6 ", style: {
-							borderRadius: 8, overflow: 'hidden', width: 150, height: 150, borderWidth: 0,
-							// defaultValue?  `${SSocket.api.root}page/${this.key}`  : `${SSocket.api.root}page/${this.key}`
-						}
-						// defaultValue: `${SSocket.api.root}page/${this.key}`
-					},
+					foto_p: { type: "image", isRequired: false, col: "xs-6 ", style: { borderRadius: 8, overflow: 'hidden', width: 150, height: 150, borderWidth: 0, } },
 
-					// precio: { label: 'Precio', type: 'money', isRequired: true, defaultValue: this.data.precio, style: { width: "48%", marginStart: "25%", marginEnd: "25%" } },
 					foto_p2: { type: "image", isRequired: false, col: "xs-6", style: { borderRadius: 8, overflow: 'hidden', width: 150, height: 150, borderWidth: 0 } },
-
 
 					ci: {
 						label: 'Nro carnet identidad', type: 'text', isRequired: true, style: { fontSize: 14 },
+						defaultValue: this.data?.ci,
 						icon: <SIcon name={"IconClienteCiNro"} width={35} height={18} fill={STheme.color.primary} />,
-						onKeyPress: (evt) => { if (evt.key === "Enter") { this.form.focus("nombres"); } }
-
+						// onKeyPress: (evt) => { if (evt.key === "Enter") { this.form.focus("nombres"); } }
 					},
 					nombres: {
 						label: 'Nombre completo', type: 'text', isRequired: true, style: { fontSize: 14 },
+						defaultValue: this.data?.nombres,
 						icon: <SIcon name={"IconClienteUser"} width={40} height={20} fill={STheme.color.primary} />,
-						onKeyPress: (evt) => { if (evt.key === "Enter") { this.form.focus("apellidos"); } }
-
+						// onKeyPress: (evt) => { if (evt.key === "Enter") { this.form.focus("apellidos"); } }
 					},
 					apellidos: {
 						label: 'Apellidos', type: 'text', isRequired: true, style: { fontSize: 14 },
+						defaultValue: this.data?.apellidos,
+
 						icon: <SIcon name={"IconClienteUser"} width={35} height={18} fill={STheme.color.primary} />,
 						iconR: <SIcon name={"IconClientePais"} width={35} height={18} fill={STheme.color.primary} />,
-						onKeyPress: (evt) => { if (evt.key === "Enter") { this.form.focus("pais"); } }
+						// onKeyPress: (evt) => { if (evt.key === "Enter") { this.form.focus("pais"); } }
 					},
 					pais: {
-						label: 'Pais', type: 'select', isRequired: true, defaultValue: 'bolivia',
+						label: 'Pais', type: 'select', isRequired: true,
 						style: { col: 'xs-12', row: 'xs-12', },
-
+						defaultValue: this.data?.pais ?? 'bolivia',
 						options: [
-							{ key: "bolivia", content: <SText >Bolivia</SText> },
+							{ key: "bolivia", content: <SText>Bolivia</SText> },
 							{ key: "brasil", content: "Brasil" },
 							{ key: "venezuela", content: "Venezuela" },
 							{ key: "colombia", content: "Colombia" },
 						],
-
 					},
 					telefono: {
 						label: 'ingresar telefono', type: 'phone', isRequired: true, style: { fontSize: 14 },
+						defaultValue: this.data?.telefono,
 						icon: <SIcon name={"IconClienteTelefono"} width={35} height={18} fill={STheme.color.primary} />,
-						onKeyPress: (evt) => { if (evt.key === "Enter") { this.form.submit(); } }
+						// onKeyPress: (evt) => { if (evt.key === "Enter") { this.form.submit(); } }
 					},
 				}}
-				// onSubmitName={"GUARDAR"}
 				onSubmit={(values) => {
 					if (this.key) {
+						cliente.Actions.editar({ ...this.data, ...values }, this.props);
 						SPopup.alert("campos actualizados!");
 
-						// servicios.Actions.editar({ ...this.data, ...values }, this.props);
 					} else {
+						values.key_inmueble = this.key_inmueble;
+						cliente.Actions.registro(values, this.props);
 						SPopup.alert("Medotdo guardar!");
 
-						// values.key_inmueble = this.key_inmueble;
-						// values.tipo = 1;
-						// values.estado_servicio = 1;
-						// servicios.Actions.registro(values, this.props);
 					}
 				}}
 			/>
@@ -170,7 +141,7 @@ class Registro extends Component {
 
 				<YoAlquilo.YoAlquiloButtom primary onPress={() => {
 					this.form.submit();
-				}}>INICIAR</YoAlquilo.YoAlquiloButtom>
+				}}>GUARDAR</YoAlquilo.YoAlquiloButtom>
 
 
 			</SView>
@@ -239,15 +210,15 @@ class Registro extends Component {
 	}
 
 	render() {
-		// var reducer = servicios.Actions._getReducer(this.props);
-		// if (reducer.estado == "exito" && (reducer.type == "registro" || reducer.type == "editar")) {
-		// 	reducer.estado = "";
-		// 	SNavigation.goBack();
-		// }
+		var reducer = cliente.Actions._getReducer(this.props);
+		if (reducer.estado == "exito" && (reducer.type == "registro" || reducer.type == "editar")) {
+			reducer.estado = "";
+			SNavigation.goBack();
+		}
 		return (
 			<SPage title={'Registro Inquilino'} center>
-				<SView height={24} />
-				{this.getheaderPhoto()}
+				{/* <SView height={24} /> */}
+				{/* {this.getheaderPhoto()} */}
 				<SView height={24} />
 				{this.getForm()}
 				<SView height={24} />
