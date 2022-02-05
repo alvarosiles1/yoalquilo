@@ -19,22 +19,23 @@ class Lista extends Component {
 
 		if (!lista) return <SText>Cargando</SText>
 
-		// let listaDeTiposFiltrados = Object.values(lista).filter(item => item.tipo == 1);
-		// if (Object.keys(listaDeTiposFiltrados).length == 0) {
-		// 	if (lista[key].key_inmueble == this.key_inmueble)
-		// 		SNavigation.navigate("habitacion/registro", { key_inmueble: this.key_inmueble });
-		// 	return <SText>No hay servicio</SText>
-		// }
-		if (Object.keys(lista).length == 0) {
-			SNavigation.navigate("habitacion/registro", { key_inmueble: this.key_inmueble });
-			return <SText>No hay habitacion</SText>
-		}
-
-		return Object.keys(lista).map(key => {
-			if (lista[key].key_inmueble != this.key_inmueble) {
-				SNavigation.navigate("habitacion/registro", { key_inmueble: this.key_inmueble });
-				return <SText>No habitacion</SText>
+		let listaDeTiposFiltrados = Object.values(lista).filter(item => {
+			if (item.tipo != 1 || item.key_inmueble != this.key_inmueble) {
+				return false;
 			}
+			return true;
+		});
+		if (Object.keys(listaDeTiposFiltrados).length == 0) {
+			SNavigation.replace("habitacion/registro", { key_inmueble: this.key_inmueble });
+			return <SText>No hay servicio</SText>
+		}
+		// if (Object.keys(lista).length == 0) {
+		// 	SNavigation.replace("habitacion/registro", { key_inmueble: this.key_inmueble });
+		// 	return <SText>No hay habitacion</SText>
+		// }
+
+		return listaDeTiposFiltrados.map(item => {
+			var key = item.key;
 			if (lista[key].tipo != '1') return <SText>No hay habitacion</SText>
 
 			var obj = lista[key];

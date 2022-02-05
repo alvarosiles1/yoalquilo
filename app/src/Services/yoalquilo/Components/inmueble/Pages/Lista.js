@@ -35,7 +35,8 @@ class lista extends Component {
                     <SView width={130} height={150} row center
                         onPress={() => { SNavigation.navigate('inmueble/perfil', { key_inmueble: key }) }}>
                         <SView style={{
-                            width: 120, height: 120, borderRadius: 20, backgroundColor: "#F6F6F6",
+                            width: 120, height: 120, borderRadius: 20, 
+                            // backgroundColor: "#F6F6F6",
                         }} center >
 
                             <SView width={'100%'} height={'100%'} style={{

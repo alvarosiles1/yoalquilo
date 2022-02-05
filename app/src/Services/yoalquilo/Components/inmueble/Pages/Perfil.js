@@ -52,32 +52,26 @@ class Perfil extends Component {
                     </SView>
                     <SView col={'xs-7'} row center  >
                         <SView col={'xs-12'}   >
+                            <SText fontSize={18} bold font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
+                                {this.data.descripcion} </SText>
                             <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
                                 Tipo: {this.data.tipo} </SText>
-                            <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
-                                Descripcion: {this.data.descripcion} </SText>
+                            <SHr />
                             <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
                                 dirección: {this.data.direccion} </SText>
                         </SView>
                     </SView>
                 </SView>
-
                 <SView col={'xs-4'} row center>
                     <SView width={100} height={30} row center onPress={() => { SNavigation.navigate('inmueble/registro', { key_inmueble: this.key_inmueble }) }}>
                         <SView col={'xs-12'} height style={{
-                            borderRadius: 20, backgroundColor: "#F6F6F6",
+                            borderRadius: 20,
+                            backgroundColor: "#F6F6F6",
                         }} center >
-                            <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}> Perfil </SText>
+                            <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>Perfil</SText>
                         </SView>
                     </SView>
-
-
                 </SView>
-
-
-
-
-
             </SView>
         </>
     }
@@ -92,7 +86,6 @@ class Perfil extends Component {
                     }} center >
                         <SIcon name={icono} width={80} height={80} fill={STheme.color.primary} />
                     </SView>
-
                     <SView col={'xs-12'} height={18} center backgroundColor={'transparent'}   >
                         <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}> {descripcion} </SText>
                     </SView>

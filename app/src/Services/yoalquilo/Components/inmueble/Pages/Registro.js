@@ -40,7 +40,7 @@ class registro extends Component {
                     ]
                 },
             }}
-            onSubmitName={"registrar"}
+            onSubmitName={!this.key?"registrar":"editar"}
             onSubmit={(values) => {
                 if (this.key) {
                     inmueble.Actions.editar({ ...this.data, ...values }, this.props);
