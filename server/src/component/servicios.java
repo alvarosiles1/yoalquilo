@@ -1,5 +1,8 @@
 package component;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -38,11 +41,12 @@ public class servicios {
 
     public void registro(JSONObject obj, SSSessionAbstract sesion) {
         try {
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
             JSONObject data = obj.getJSONObject("data");
             data.put("key", UUID.randomUUID().toString());
-            data.put("fecha_on", "now()");
+            data.put("key_usuario", obj.getString("key_usuario"));
+            data.put("fecha_on", formatter.format(new Date()));
             data.put("estado", 1);
-
             SPGConect.insertArray(component, new JSONArray().put(data));
             obj.put("data", data);
             obj.put("estado", "exito");
@@ -54,7 +58,6 @@ public class servicios {
 
     public void editar(JSONObject obj, SSSessionAbstract sesion) {
         try {
-
             JSONObject data = obj.getJSONObject("data");
             SPGConect.editObject(component, data);
             obj.put("data", data);
@@ -64,39 +67,37 @@ public class servicios {
             e.printStackTrace();
         }
     }
-
-    // public void getAllHabitacion(JSONObject obj, SSSessionAbstract sesion) {
-    // try {
-    // String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" +
-    // component
-    // + ".*)) as json from " + component + " where " + component + ".estado = 1 and
-    // key_usuario = '"
-    // + obj.getString("key_usuario") + "'" +
-    // " and tipo = 1 ";
-    // JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
-    // obj.put("data", data);
-    // obj.put("estado", "exito");
-    // } catch (Exception e) {
-    // obj.put("estado", "error");
-    // e.printStackTrace();
-    // }
-    // }
-
-    // public void getAllServicio(JSONObject obj, SSSessionAbstract sesion) {
-    // try {
-    // String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" +
-    // component
-    // + ".*)) as json from " + component + " where " + component + ".estado = 1 and
-    // key_usuario = '"
-    // + obj.getString("key_usuario") + "'" +
-    // " and tipo = 2 ";
-    // JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
-    // obj.put("data", data);
-    // obj.put("estado", "exito");
-    // } catch (Exception e) {
-    // obj.put("estado", "error");
-    // e.printStackTrace();
-    // }
-    // }
-
 }
+// public void getAllHabitacion(JSONObject obj, SSSessionAbstract sesion) {
+// try {
+// String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" +
+// component
+// + ".*)) as json from " + component + " where " + component + ".estado = 1 and
+// key_usuario = '"
+// + obj.getString("key_usuario") + "'" +
+// " and tipo = 1 ";
+// JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
+// obj.put("data", data);
+// obj.put("estado", "exito");
+// } catch (Exception e) {
+// obj.put("estado", "error");
+// e.printStackTrace();
+// }
+// }
+
+// public void getAllServicio(JSONObject obj, SSSessionAbstract sesion) {
+// try {
+// String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" +
+// component
+// + ".*)) as json from " + component + " where " + component + ".estado = 1 and
+// key_usuario = '"
+// + obj.getString("key_usuario") + "'" +
+// " and tipo = 2 ";
+// JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
+// obj.put("data", data);
+// obj.put("estado", "exito");
+// } catch (Exception e) {
+// obj.put("estado", "error");
+// e.printStackTrace();
+// }
+// }

@@ -9,16 +9,14 @@ import org.json.JSONObject;
 import Server.SSSAbstract.SSSessionAbstract;
 import Servisofts.SPGConect;
 
-public class inmueble {
-    private final static String component = "inmueble";
+public class pago_detalle {
 
-    public inmueble(JSONObject obj, SSSessionAbstract sesion) {
+    private final static String component = "pago_detalle";
+
+    public pago_detalle(JSONObject obj, SSSessionAbstract sesion) {
         switch (obj.getString("type")) {
             case "getAll":
                 getAll(obj, sesion);
-                break;
-            case "getAllActivas":
-                getAllActivas(obj, sesion);
                 break;
             case "registro":
                 registro(obj, sesion);
@@ -42,28 +40,13 @@ public class inmueble {
         }
     }
 
-    public void getAllActivas(JSONObject obj, SSSessionAbstract sesion) {
-        try {
-            String consulta = "select jsonb_object_agg(" + component + ".key, to_json(" + component
-                    + ".*)) as json from " + component + " where " + component + ".estado = 1 and key_usuario = '"
-                    + obj.getString("key_usuario") + "'";
-            JSONObject data = SPGConect.ejecutarConsultaObject(consulta);
-            obj.put("data", data);
-            obj.put("estado", "exito");
-        } catch (Exception e) {
-            obj.put("estado", "error");
-            e.printStackTrace();
-        }
-    }
-
     public void registro(JSONObject obj, SSSessionAbstract sesion) {
         try {
             DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
-            String fecha_on = formatter.format(new Date());
             JSONObject data = obj.getJSONObject("data");
             data.put("key", UUID.randomUUID().toString());
             data.put("key_usuario", obj.getString("key_usuario"));
-            data.put("fecha_on", fecha_on);
+            data.put("fecha_on", formatter.format(new Date()));
             data.put("estado", 1);
             SPGConect.insertArray(component, new JSONArray().put(data));
             obj.put("data", data);
