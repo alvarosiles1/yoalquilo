@@ -14,24 +14,7 @@ class Perfil extends Component {
 
     }
 
-    getIcon(tipo) {
-        switch (tipo) {
-            case "condominio":
-                return "IconMenuCondominio";
-            case "edificio":
-                return "IconMenuEdificio";
-            case "casa":
-                return "IconMenuCasa";
-            case "hotel":
-                return "IconMenuHotel";
-            case 'hostal':
-                return "IconMenuHotel";
-            case "motel":
-                return "IconMenuMotel";
-            default:
-                return "YAHome";
-        }
-    }
+
 
     getPerfil() {
 
@@ -47,7 +30,7 @@ class Perfil extends Component {
                 <SView col={'xs-8'} row center>
                     <SView col={'xs-5 xl-2'} row center  >
                         <SView style={{ width: 120, height: 120, }} row center >
-                            <SIcon name={inmueble.Actions.getIcon(this.data.tipo)} width={80} height={80} fill={STheme.color.primary} />
+                            <SIcon name={inmueble.Actions.getIcon(this.data.tipo_inmueble)} width={80} height={80} fill={STheme.color.primary} />
                         </SView>
                     </SView>
                     <SView col={'xs-7'} row center  >
@@ -55,7 +38,7 @@ class Perfil extends Component {
                             <SText fontSize={18} bold font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
                                 {this.data.descripcion} </SText>
                             <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
-                                Tipo: {this.data.tipo} </SText>
+                                Tipo: {this.data.tipo_inmueble}</SText>
                             <SHr />
                             <SText fontSize={16} font={"Roboto-Light"} color={'#212121'} style={{ textTransform: "capitalize" }}>
                                 dirección: {this.data.direccion} </SText>

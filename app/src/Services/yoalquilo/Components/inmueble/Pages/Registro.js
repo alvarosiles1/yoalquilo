@@ -27,20 +27,21 @@ class registro extends Component {
             inputs={{
                 descripcion: { label: 'Descripcion', type: 'text', isRequired: true, defaultValue: this.data.descripcion },
                 direccion: { label: 'Direccion', type: 'text', isRequired: true, defaultValue: this.data.direccion },
-                tipo: {
-                    label: 'Tipo', type: 'select', defaultValue: '' + this.data.tipo + '', isRequired: true, options: [
-                        { key: "", content: " " },
-                        { key: "casa", content: "Casita" },
-                        { key: "edificio", content: "Edificio" },
-                        { key: "condominio", content: "Condominio" },
-                        { key: "hotel", content: "Hotel" },
-                        { key: "hostal", content: "Hostal" },
-                        { key: "alojamiento", content: "Alojamiento" },
-                        { key: "motel", content: "Motel" },
+                tipo_inmueble: {
+                    label: 'Tipo', type: 'select',
+
+                    defaultValue: this.data?.tipo_inmueble ?? 'Casa', isRequired: true, options: [
+                        { key: "Casa", content: "Casa" },
+                        { key: "Edificio", content: "Edificio" },
+                        { key: "Condominio", content: "Condominio" },
+                        { key: "Hotel", content: "Hotel" },
+                        { key: "Hostal", content: "Hostal" },
+                        { key: "Alojamiento", content: "Alojamiento" },
+                        { key: "Motel", content: "Motel" },
                     ]
                 },
             }}
-            onSubmitName={!this.key?"registrar":"editar"}
+            onSubmitName={!this.key ? "registrar" : "editar"}
             onSubmit={(values) => {
                 if (this.key) {
                     inmueble.Actions.editar({ ...this.data, ...values }, this.props);

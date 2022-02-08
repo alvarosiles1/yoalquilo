@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { SForm, SHr, SIcon, SInput, SNavigation, SPage, SPopup, SText, STheme, SView } from 'servisofts-component';
 import cliente from '..';
 import YoAlquilo from '../../../../../Components/YoAlquilo';
+import cliente_subordinado from '../../cliente_subordinado';
 
 class Registro extends Component {
 	constructor(props) {
@@ -163,7 +164,23 @@ class Registro extends Component {
 
 
 
-				<SView col={'xs-6'} height row center onPress={() => { SPopup.alert("¡Código incorrecto!"); }}>
+				<SView col={'xs-6'} height row center onPress={() => {
+
+					if (!this.key) {
+						SPopup.alert("registrar usuario!");
+
+					} else {
+						SNavigation.navigate('cliente_subordinado/registro', { key_cliente: this.key })
+
+					}
+
+
+
+					// SNavigation.navigate('cliente_subordinado', { key_cliente: this.key })
+
+
+
+				}}>
 					<SView col={'xs-12'}>
 						<SView style={{ alignItems: "flex-end" }}>
 							<SText font={"Roboto"} fontSize={18} color={STheme.color.primary}><SIcon name={'IconClientePlus'} width={12} stroke={STheme.color.primary} /> Añadir</SText>
@@ -177,37 +194,98 @@ class Registro extends Component {
 	}
 
 	getSubordinadoList = () => {
-		return <>
-			<SView col={'xs-11 sm-9 md-8 lg-6 xl-4'} height={75} row center border={'#BBA4A4'} style={{ borderRadius: 8, overflow: 'hidden' }}  >
-				<SView col={'xs-1.5 md-1.2'} height style={{ top: 12, }} backgroundColor={'transparent'} >
-					<SIcon name={'IconClienteSubordinado'} width={24} height={22.02} fill='red' />
+
+
+		var lista100 = cliente_subordinado.Actions.getAll(this.props);
+		if (!lista100) return <SText>Cargando</SText>
+
+		let listaDeTiposFiltrados = Object.values(lista100).filter(item => {
+			if (item.key_cliente != this.key) {
+				return false;
+			}
+			return true;
+		});
+
+		if (!this.key) {
+			return false
+		}
+
+		if (Object.keys(listaDeTiposFiltrados).length == 0) {
+			// SNavigation.replace("cliente_subordinado/registro", { key_cliente: this.key_cliente });
+			return <SText>No hay subordinado</SText>
+		}
+
+		return listaDeTiposFiltrados.map(item => {
+			var key = item.key;
+			var obj = lista100[key];
+			return <>
+				<SView col={'xs-11 md-8 lg-6 xl-4'} row center border={'#BBA4A4'} style={{ borderRadius: 8, }}  >
+					<SView col={'xs-10'} height={60} row center>
+						<SView col={'xs-3 md-2 lg-2 xl-2'} row center>
+							<SView style={{ width: 48, height: 48, borderRadius: 50, backgroundColor: "blue", }} row center >
+
+								<SIcon name={'IconClienteSubordinado'} width={24} height={22.02} fill='red' />
+
+							</SView>
+						</SView>
+						<SView col={'xs-9 md-10 lg-10 xl-10'} row center  >
+							<SView col={'xs-12 '}   >
+								< SText fontSize={18} font={"Roboto"} color={'#111111'} Bold > {obj.nombre}</SText>
+								< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} > telefono {lista100[key].telefono}  </SText>
+
+							</SView>
+						</SView>
+					</SView>
+					<SView col={'xs-2'} row center>
+						<SView width={100} height={30} row center onPress={() => {
+							SNavigation.navigate('cliente_subordinado/registro', { key_cliente: this.key_cliente, key: obj.key })
+
+						}}>
+							<SIcon name={'IconEdit'} fill='none' width={18} />
+						</SView>
+					</SView>
 				</SView>
-				<SView col={'xs-6.5 md-6.5'} height backgroundColor={'transparent'} style={{ top: 12, }} >
-					< SText fontSize={18} font={"Roboto"} color={'#111111'} Bold >Tia</SText>
-					< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} >Sandra Torrico Torrico</SText>
-					< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} >telf: 69090090</SText>
-				</SView>
-				<SView col={'xs-2.5 md-3'} height style={{ top: 12, alignItems: "flex-end" }}>
-					<SIcon name={'IconEdit'} width={18} height={22.02} fill='none' />
-				</SView>
-			</SView>
-			<SView col={'xs-12'} height={10} />
-			<SView col={'xs-11 sm-9 md-8 lg-6 xl-4'} height={75} row center border={'#BBA4A4'} style={{ borderRadius: 8, overflow: 'hidden' }}  >
-				<SView col={'xs-1.5 md-1.2'} height style={{ top: 12, }} backgroundColor={'transparent'} >
-					<SIcon name={'IconClienteSubordinado'} width={24} height={22.02} fill='red' />
-				</SView>
-				<SView col={'xs-6.5 md-6.5'} height backgroundColor={'transparent'} style={{ top: 12, }} >
-					< SText fontSize={18} font={"Roboto"} color={'#111111'} Bold >Tia</SText>
-					< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} >Sandra Torrico Torrico</SText>
-					< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} >telf: 69090090</SText>
-				</SView>
-				<SView col={'xs-2.5 md-3'} height style={{ top: 12, alignItems: "flex-end" }}>
-					<SIcon name={'IconEdit'} width={18} height={22.02} fill='none' />
-				</SView>
-			</SView>
-			<SView col={'xs-12'} height={10} />
-		</>
+				<SView col={'xs-12'} height={10} />
+			</>
+		})
+
+
 	}
+
+
+	// getSubordinadoList = () => {
+	// 	return <>
+	// 		<SView col={'xs-11 sm-9 md-8 lg-6 xl-4'} height={75} row center border={'#BBA4A4'} style={{ borderRadius: 8, overflow: 'hidden' }}  >
+	// 			<SView col={'xs-1.5 md-1.2'} height style={{ top: 12, }} backgroundColor={'transparent'} >
+	// 				<SIcon name={'IconClienteSubordinado'} width={24} height={22.02} fill='red' />
+	// 			</SView>
+	// 			<SView col={'xs-6.5 md-6.5'} height backgroundColor={'transparent'} style={{ top: 12, }} >
+	// 				< SText fontSize={18} font={"Roboto"} color={'#111111'} Bold >Tia</SText>
+	// 				< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} >Sandra Torrico Torrico</SText>
+	// 				< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} >telf: 69090090</SText>
+	// 			</SView>
+	// 			<SView col={'xs-2.5 md-3'} height style={{ top: 12, alignItems: "flex-end" }}>
+	// 				<SIcon name={'IconEdit'} width={18} height={22.02} fill='none' />
+	// 			</SView>
+	// 		</SView>
+	// 		<SView col={'xs-12'} height={10} />
+	// 		<SView col={'xs-11 sm-9 md-8 lg-6 xl-4'} height={75} row center border={'#BBA4A4'} style={{ borderRadius: 8, overflow: 'hidden' }}  >
+	// 			<SView col={'xs-1.5 md-1.2'} height style={{ top: 12, }} backgroundColor={'transparent'} >
+	// 				<SIcon name={'IconClienteSubordinado'} width={24} height={22.02} fill='red' />
+	// 			</SView>
+	// 			<SView col={'xs-6.5 md-6.5'} height backgroundColor={'transparent'} style={{ top: 12, }} >
+	// 				< SText fontSize={18} font={"Roboto"} color={'#111111'} Bold >Tia</SText>
+	// 				< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} >Sandra Torrico Torrico</SText>
+	// 				< SText fontSize={14} font={"Roboto-Light"} color={'#666666'} >telf: 69090090</SText>
+	// 			</SView>
+	// 			<SView col={'xs-2.5 md-3'} height style={{ top: 12, alignItems: "flex-end" }}>
+	// 				<SIcon name={'IconEdit'} width={18} height={22.02} fill='none' />
+	// 			</SView>
+	// 		</SView>
+	// 		<SView col={'xs-12'} height={10} />
+	// 	</>
+	// }
+
 
 	render() {
 		var reducer = cliente.Actions._getReducer(this.props);

@@ -12,13 +12,6 @@ class lista extends Component {
         };
     }
 
-
-
-
-
-
-
-
     getAll() {
         var lista = inmueble.Actions.getAllActivas(this.props);
         if (!lista) return <SText>Cargando</SText>
@@ -35,14 +28,14 @@ class lista extends Component {
                     <SView width={130} height={150} row center
                         onPress={() => { SNavigation.navigate('inmueble/perfil', { key_inmueble: key }) }}>
                         <SView style={{
-                            width: 120, height: 120, borderRadius: 20, 
+                            width: 120, height: 120, borderRadius: 20,
                             // backgroundColor: "#F6F6F6",
                         }} center >
 
                             <SView width={'100%'} height={'100%'} style={{
                                 position: "absolute",
                             }} center>
-                                <SIcon name={inmueble.Actions.getIcon(obj.tipo)} width={80} height={80} fill={STheme.color.primary} />
+                                <SIcon name={inmueble.Actions.getIcon(obj.tipo_inmueble)} width={80} height={80} fill={STheme.color.primary} />
                             </SView>
 
                             <SIcon name={'IconMenuBg'} width={"100%"} />

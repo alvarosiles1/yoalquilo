@@ -42,8 +42,8 @@ class Lista extends Component {
 				<SView col={'xs-11 md-8 lg-6 xl-4'} row center border={'#BBA4A4'} style={{ borderRadius: 8, }}  >
 					<SView col={'xs-10'} height={60} row center>
 						<SView col={'xs-3 md-2 lg-2 xl-2'} row center>
-							<SView style={{ width: 48, height: 48, borderRadius: 50, backgroundColor: "blue", }} row center >
-								{/* <SIcon name={'IconClienteUser'} width={20} height={20} fill='white' /> */}
+							<SView style={{ width: 48, height: 48, borderRadius: 50, }} backgroundColor={STheme.color.primary} row center >
+								<SIcon name={'IconClienteUser'} width={20} height={20} fill='white' />
 							</SView>
 						</SView>
 						<SView col={'xs-9 md-10 lg-10 xl-10'} row center  >
@@ -86,6 +86,7 @@ class Lista extends Component {
 			</SPage>
 			<FloatButtom onPress={() => {
 				SNavigation.navigate("cliente/registro", { key_inmueble: this.key_inmueble })
+				// SNavigation.navigate('cliente/registro', { key_inmueble: this.key_inmueble, key: obj.key })
 
 
 			}} />	</>

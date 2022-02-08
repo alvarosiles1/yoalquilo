@@ -1,8 +1,14 @@
+
 # clase react #1
 
 ### Creacion de componente
 
 ```javascript
+
+        // "servisofts-component": "file:../../servisofts-component/dist",
+
+
+
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 

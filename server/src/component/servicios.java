@@ -42,10 +42,13 @@ public class servicios {
     public void registro(JSONObject obj, SSSessionAbstract sesion) {
         try {
             DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
+
+            String fecha_on = formatter.format(new Date()).toString();
+
             JSONObject data = obj.getJSONObject("data");
             data.put("key", UUID.randomUUID().toString());
             data.put("key_usuario", obj.getString("key_usuario"));
-            data.put("fecha_on", formatter.format(new Date()));
+            data.put("fecha_on", fecha_on);
             data.put("estado", 1);
             SPGConect.insertArray(component, new JSONArray().put(data));
             obj.put("data", data);

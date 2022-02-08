@@ -32,11 +32,13 @@ class Registro extends Component {
 
 				estado_servicio: {
 					label: 'Estado', type: 'select',
-					defaultValue: '1', isRequired: true, options: [
-						{ key: "1", content: "activo" },
-						{ key: "0", content: "desactivo" },
+					defaultValue: this.data?.estado_servicio ?? "Activo", isRequired: true, options: [
+						{ key: "Activo", content: "Activo" },
+						{ key: "Desactivo", content: "Desactivo" },
+
 					]
 				},
+
 			}}
 			onSubmitName={"registrar"}
 			onSubmit={(values) => {
@@ -45,7 +47,8 @@ class Registro extends Component {
 				} else {
 
 					values.key_inmueble = this.key_inmueble;
-					values.tipo = 2;
+					values.tipo_servicio = 'Servicio';
+
 					servicios.Actions.registro(values, this.props);
 				}
 			}}

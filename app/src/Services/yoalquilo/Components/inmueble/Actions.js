@@ -7,22 +7,27 @@ export default class Actions {
 
     static getIcon(tipo) {
         switch (tipo) {
-            case "condominio":
-                return "IconMenuCondominio";
-            case "edificio":
-                return "IconMenuEdificio";
-            case "casa":
+
+            case "Casa":
                 return "IconMenuCasa";
-            case "hotel":
+            case "Edificio":
+                return "IconMenuEdificio";
+            case "Condominio":
+                return "IconMenuCondominio";
+            case "Hotel":
                 return "IconMenuHotel";
-            case 'hostal':
+            case 'Hostal':
                 return "IconMenuHotel";
-            case "motel":
+            case 'Alojamiento':
+                return "IconMenuHotel";
+            case "Motel":
                 return "IconMenuMotel";
             default:
                 return "YAHome";
         }
     }
+
+
 
     static _getReducer = (props) => {
         return props.state[Parent.component + "Reducer"];

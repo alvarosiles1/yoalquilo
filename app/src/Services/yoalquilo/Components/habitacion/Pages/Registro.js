@@ -31,10 +31,10 @@ class Registro extends Component {
 				precio: { label: 'Precio', type: 'money', isRequired: true, defaultValue: this.data?.precio },
 				estado_servicio: {
 					label: 'Tipo', type: 'select',
-					defaultValue: this.data.estado_servicio ?? 1, isRequired: true, options: [
-						{ key: "1", content: "Diponible" },
-						{ key: "0", content: "ocupado" },
-						{ key: "2", content: "Reparación" },
+					defaultValue: this.data?.estado_servicio ?? "Disponible", isRequired: true, options: [
+						{ key: 'Disponible', content: "Disponible" },
+						{ key: 'Ocupado', content: "Ocupado" },
+						{ key: 'Reparacion', content: "Reparación" },
 
 					]
 				},
@@ -48,8 +48,7 @@ class Registro extends Component {
 					servicios.Actions.editar({ ...this.data, ...values }, this.props);
 				} else {
 					values.key_inmueble = this.key_inmueble;
-					values.tipo = 1;
-					// values.estado_servicio = 1;
+					values.tipo_servicio = 'Habitacion';
 					servicios.Actions.registro(values, this.props);
 				}
 			}}

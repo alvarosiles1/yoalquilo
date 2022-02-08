@@ -17,7 +17,7 @@ class Lista extends Component {
 		if (!lista) return <SText>Cargando</SText>
 
 		let listaDeTiposFiltrados = Object.values(lista).filter(item => {
-			if (item.tipo != 2 || item.key_inmueble != this.key_inmueble) {
+			if (item.tipo_servicio != 'Servicio' || item.key_inmueble != this.key_inmueble) {
 				return false;
 			}
 			return true;
@@ -29,7 +29,7 @@ class Lista extends Component {
 
 		return listaDeTiposFiltrados.map(item => {
 			var key = item.key;
-			if (lista[key].tipo != 2) return <SText>No hay servicio</SText>
+			if (lista[key].tipo_servicio != 'Servicio') return <SText>No hay servicio</SText>
 			var obj = lista[key];
 			return <>
 				<SView col={'xs-11 md-8 lg-6 xl-4'} row center border={'#BBA4A4'} style={{ borderRadius: 8, }}  >
