@@ -13,12 +13,14 @@
         "reconectTime": 5000
     },
     "files": {
-        "url": "/u01/servisoftsFiles/yoalquilo/"
+        "url": "C:/Users/ALVARO/Documents/GitHub/yoalquilo/",
+        "comentario001": "para windows 'url': 'C:/Users/ALVARO/Documents/GitHub/yoalquilo/'",
+        "comentario002": "para linux 'url': '/u01/servisoftsFiles/yoalquilo/'"
     },
     "data_base": {
         "puerto": 5432,
         "pass": "postgres",
-        "ip": "yoalquilo.ss.lo",
+        "ip": "192.168.88.254",
         "bd_name": "servisofts.yoalquilo",
         "user": "postgres"
     },
@@ -35,5 +37,4 @@
         },
         "nombre_jks": "servisofts"
     }
-
 }

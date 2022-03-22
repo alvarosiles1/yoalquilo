@@ -195,7 +195,6 @@ class Registro extends Component {
 
 	getSubordinadoList = () => {
 
-
 		var lista100 = cliente_subordinado.Actions.getAll(this.props);
 		if (!lista100) return <SText>Cargando</SText>
 
@@ -295,8 +294,8 @@ class Registro extends Component {
 		}
 		return (
 			<SPage title={'Registro Inquilino'} center>
-				{/* <SView height={24} /> */}
-				{/* {this.getheaderPhoto()} */}
+				<SView height={24} />
+				{this.getheaderPhoto()}
 				<SView height={24} />
 				{this.getForm()}
 				<SView height={24} />
