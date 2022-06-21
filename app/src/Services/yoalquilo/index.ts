@@ -2,7 +2,7 @@ import { SPageListProps } from 'servisofts-component'
 // import template from './templates/template';
 import inmueble from './Components/inmueble';
 import habitacion from './Components/habitacion';
-import servicios from './Components/servicios';
+import servicios from './Components/servicio';
 import cliente from './Components/cliente';
 import cliente_subordinado from './Components/cliente_subordinado';
 

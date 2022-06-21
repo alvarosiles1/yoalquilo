@@ -9,10 +9,10 @@ import org.json.JSONObject;
 import Server.SSSAbstract.SSSessionAbstract;
 import Servisofts.SPGConect;
 
-public class servicios_detalle {
-    private final static String component = "servicios_detalle";
+public class servicio_detalle {
+    private final static String component = "servicio_detalle";
 
-    public servicios_detalle(JSONObject obj, SSSessionAbstract sesion) {
+    public servicio_detalle(JSONObject obj, SSSessionAbstract sesion) {
         switch (obj.getString("type")) {
             case "getAll":
                 getAll(obj, sesion);

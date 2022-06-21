@@ -8,9 +8,11 @@ import AjustesPage from './AjustesPage';
 import Servicios from './Servicios';
 import Page from './Page';
 import yoalquilo from '../Services/yoalquilo';
+import servicio from '../Services/yoalquilo/Components/servicio';
 
 const Pages: SPageListProps = {
-    "/": InicioPage,
+    "/": servicio,
+    // "/": InicioPage,
     "carga": CargaPage,
     "ajustes":AjustesPage,
     ...Services.Pages,

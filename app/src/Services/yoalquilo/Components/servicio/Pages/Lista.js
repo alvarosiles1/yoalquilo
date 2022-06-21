@@ -23,7 +23,7 @@ class Lista extends Component {
 			return true;
 		});
 		if (Object.keys(listaDeTiposFiltrados).length == 0) {
-			SNavigation.replace("servicios/registro", { key_inmueble: this.key_inmueble });
+			SNavigation.replace("servicio/registro", { key_inmueble: this.key_inmueble });
 			return <SText>No hay servicio</SText>
 		}
 
@@ -49,7 +49,7 @@ class Lista extends Component {
 					</SView>
 					<SView col={'xs-2'} row center>
 						<SView width={100} height={30} row center onPress={() => {
-							SNavigation.navigate('servicios/registro', { key_inmueble: this.key_inmueble, key: obj.key })
+							SNavigation.navigate('servicio/registro', { key_inmueble: this.key_inmueble, key: obj.key })
 
 						}}>
 							<SIcon name={'IconEdit'} fill='none' width={18} />
@@ -73,7 +73,7 @@ class Lista extends Component {
 			</SPage>
 
 			<FloatButtom onPress={() => {
-				SNavigation.navigate("servicios/registro", { key_inmueble: this.key_inmueble })
+				SNavigation.navigate("servicio/registro", { key_inmueble: this.key_inmueble })
 
 			}} />	</>
 		);

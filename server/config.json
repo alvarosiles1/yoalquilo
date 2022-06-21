@@ -20,7 +20,7 @@
     "data_base": {
         "puerto": 5432,
         "pass": "postgres",
-        "ip": "192.168.88.254",
+        "ip": "181.188.128.236",
         "bd_name": "servisofts.yoalquilo",
         "user": "postgres"
     },

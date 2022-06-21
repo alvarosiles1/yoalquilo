@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SHr, SIcon, SNavigation, SPage, SText, STheme, SLoad, SView } from 'servisofts-component';
 import FloatButtom from '../../../../../Components/FloatButtom';
-import servicios from '../../servicios';
+import servicios from '../../servicio';
 // import servicios from '..';
 class Lista extends Component {
 	constructor(props) {

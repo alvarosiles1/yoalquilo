@@ -10,8 +10,8 @@ import component.cliente_foto;
 import component.cliente_subordinado;
 import component.pago;
 import component.pago_detalle;
-import component.servicios;
-import component.servicios_detalle;
+import component.servicio;
+import component.servicio_detalle;
 import component.inmueble;
 
 public class Manejador {
@@ -25,11 +25,11 @@ public class Manejador {
                 case "inmueble":
                     new inmueble(obj, session);
                     break;
-                case "servicios":
-                    new servicios(obj, session);
+                case "servicio":
+                    new servicio(obj, session);
                     break;
-                case "servicios_detalle":
-                    new servicios_detalle(obj, session);
+                case "servicio_detalle":
+                    new servicio_detalle(obj, session);
                     break;
                 case "cliente":
                     new cliente(obj, session);

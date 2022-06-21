@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SForm, SLoad, SNavigation, SPage, SText } from 'servisofts-component';
 
-import servicios from '../../servicios';
+import servicios from '../../servicio';
 
 class Registro extends Component {
 	constructor(props) {

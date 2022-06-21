@@ -13,6 +13,7 @@ import Edificio_Registro from './InicioPage/Edificio_Registro';
 import Administradores_Registro from './InicioPage/Administradores_Registro';
 import Sucursal_Registro from './InicioPage/Sucursal_Registro';
 import HomePage from './HomePage';
+import inmueble from '../Services/yoalquilo/Components/inmueble';
 
 // import Cliente from '../Services/yoalquilo/Components/cliente/Pages/Lista';
 // import inmueble from '../Services/yoalquilo/Components/inmueble/Pages/Lista';
@@ -21,9 +22,9 @@ import HomePage from './HomePage';
 
 const Pages: SPageListProps = {
 
+  
 
-    "/": HomePage,
-    // "/": inmueble,
+     "/": HomePage,
 
     ...Services.Pages,
     "carga": CargaPage,
