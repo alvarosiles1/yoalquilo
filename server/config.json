@@ -4,7 +4,7 @@
     "socket_client": {
         "servicio": {
             "puerto": 10001,
-            "ip": "servicio.ss.lo",
+            "ip": "181.188.128.236",
             "cert": {
                 "OU": "servicio",
                 "pem": "servicio.pem"

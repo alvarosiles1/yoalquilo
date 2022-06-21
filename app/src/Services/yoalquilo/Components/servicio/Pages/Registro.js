@@ -1,78 +1,93 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { SForm, SLoad, SNavigation, SPage, SText } from 'servisofts-component';
-import servicios from '..';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { SForm, SLoad, SNavigation, SPage, SText } from "servisofts-component";
+import servicios from "..";
 
 class Registro extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-		};
-		this.key_inmueble = SNavigation.getParam("key_inmueble");
-		this.key = SNavigation.getParam("key");
-	}
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.key_inmueble = SNavigation.getParam("key_inmueble");
+    this.key = SNavigation.getParam("key");
+  }
 
-	getForm() {
-		this.data = {};
-		if (this.key) {
-			this.data = servicios.Actions.getByKey(this.key, this.props);
-			if (!this.data) return <SLoad />
-		}
+  getForm() {
+    this.data = {};
+    if (this.key) {
+      //   this.data = servicios.Actions.getByKey(this.key_inmueble, this.props);
+      this.data = servicios.Actions.getByKey(this.key, this.props);
+      if (!this.data) return <SLoad />;
+    }
 
-		return <SForm
-			col={"xs-11 sm-10 md-8 lg-6 xl-4"}
-			inputProps={{
-				customStyle: "yoalquilo"
-			}}
+    return (
+      <SForm
+        col={"xs-11 sm-10 md-8 lg-6 xl-4"}
+        inputProps={{
+          customStyle: "yoalquilo",
+        }}
+        inputs={{
+          descripcion: {
+            label: "Descripcion",
+            type: "text",
+            isRequired: true,
+            defaultValue: this.data?.descripcion,
+          },
+          precio: {
+            label: "Precio",
+            type: "money",
+            isRequired: true,
+            defaultValue: this.data?.precio,
+          },
 
-			inputs={{
-				descripcion: { label: 'Descripcion', type: 'text', isRequired: true, defaultValue: this.data?.descripcion },
-				precio: { label: 'Precio', type: 'money', isRequired: true, defaultValue: this.data?.precio },
+          estado_servicio: {
+            label: "Tipo",
+            type: "select",
+            defaultValue: this.data?.estado_servicio ?? "1",
+            // isRequired: true,
+            options: [
+              { key: "1", content: "Activo" },
+              { key: "0", content: "Desactivo" },
+            ],
+          },
+        }}
+        onSubmitName={"registrar"}
+        onSubmit={(values) => {
+          if (this.key) {
+            // values.key_inmueble = this.key;
+            // values.tipo_servicio = "Servicio";
+            // values.tipo_servicio = "Servicio";
 
+            servicios.Actions.editar({ ...this.data, ...values }, this.props);
+          } else {
+            values.key_inmueble = this.key_inmueble;
+            values.tipo_servicio = "Servicio";
 
-				estado_servicio: {
-					label: 'Estado', type: 'select',
-					defaultValue: this.data?.estado_servicio ?? "Activo", isRequired: true, options: [
-						{ key: "Activo", content: "Activo" },
-						{ key: "Desactivo", content: "Desactivo" },
+            servicios.Actions.registro(values, this.props);
+          }
+        }}
+      />
+    );
+  }
 
-					]
-				},
-
-			}}
-			onSubmitName={"registrar"}
-			onSubmit={(values) => {
-				if (this.key) {
-					servicios.Actions.editar({ ...this.data, ...values }, this.props);
-				} else {
-
-					values.key_inmueble = this.key_inmueble;
-					values.tipo_servicio = 'Servicio';
-
-					servicios.Actions.registro(values, this.props);
-				}
-			}}
-		/>
-	}
-
-	render() {
-		var reducer = servicios.Actions._getReducer(this.props);
-		if (reducer.estado == "exito" && (reducer.type == "registro" || reducer.type == "editar")) {
-			reducer.estado = "";
-			SNavigation.goBack();
-			// SNavigation.navigate("servicios", { key_inmueble: this.key_inmueble })
-			// SNavigation.replace("servicios", { key_inmueble: this.key_inmueble });
-
-		}
-		return (
-			<SPage title={"Registro Servicio"} center>
-				{this.getForm()}
-			</SPage>
-		);
-	}
-
+  render() {
+    var reducer = servicios.Actions._getReducer(this.props);
+    if (
+      reducer.estado == "exito" &&
+      (reducer.type == "registro" || reducer.type == "editar")
+    ) {
+      reducer.estado = "";
+      SNavigation.goBack();
+      // SNavigation.navigate("servicios", { key_inmueble: this.key_inmueble })
+      // SNavigation.replace("servicios", { key_inmueble: this.key_inmueble });
+    }
+    return (
+      <SPage title={"Registro Servicio"} center>
+        {this.getForm()}
+      </SPage>
+    );
+  }
 }
 const initStates = (state) => {
-	return { state }
+  return { state };
 };
 export default connect(initStates)(Registro);
