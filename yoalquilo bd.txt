@@ -1,0 +1,186 @@
+CREATE DATABASE yoalquilo
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+
+CREATE TABLE public.inmueble(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+tipo_inmueble character varying,
+descripcion character varying,
+direccion character varying,
+latitud double precision,
+longitud double precision);
+ALTER TABLE ONLY public.inmueble ADD CONSTRAINT inmuebles_pkey PRIMARY KEY (key); 
+insert into public.inmueble (key, key_usuario,estado, tipo_inmueble, descripcion, direccion, latitud, longitud) VALUES('1','alvarosiles',1,'Casa','Geidy' ,'Av. Roca coronado nro. 445' , -17.789085740165323,-63.17750111141945);
+insert into public.inmueble (key, key_usuario,estado, tipo_inmueble, descripcion, direccion, latitud, longitud) VALUES('2','alvarosiles',1,'Condominio','Costa Azul' ,'Av. banzer nro. 445' , -17.789085740165323,-63.17750111141945);
+insert into public.inmueble (key, key_usuario,estado, tipo_inmueble, descripcion, direccion, latitud, longitud) VALUES('3','alvarosiles',1,'Alojamiento','Pasay Cacha' ,'Av. Cristo redentor nro. 445' , -17.789085740165323,-63.17750111141945);
+
+
+CREATE TABLE public.servicio(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_inmueble character varying,
+tipo character varying,
+descripcion character varying,
+precio double precision,
+estado_servicio integer);
+ALTER TABLE ONLY public.servicio ADD CONSTRAINT servicios_pkey PRIMARY KEY (key);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('hab1','alvarosiles',1,'1','Habitación' ,'Nro. 1' , 500.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('hab2','alvarosiles',1,'1','Habitación' ,'Nro. 2' , 500.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('hab3','alvarosiles',1,'1','Habitación' ,'Nro. 3' , 700.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('serv01','alvarosiles',1,'1','Servicio' ,'Agua' , 50.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('serv02','alvarosiles',1,'1','Servicio' ,'Luz' , 50.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('serv03','alvarosiles',1,'1','Servicio' ,'Aire Acondicionado' , 50.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('serv04','alvarosiles',1,'1','Servicio' ,'Garaje Moto' , 50.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('serv05','alvarosiles',1,'1','Servicio' ,'Limpieza Baño' , 20.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('serv06','alvarosiles',1,'1','Servicio' ,'Copia llave' , 5.00,1);
+insert into public.servicio (key, key_usuario,estado, key_inmueble, tipo, descripcion, precio, estado_servicio) VALUES('serv07','alvarosiles',1,'1','Servicio' ,'Otros' , 5.00,1);
+
+CREATE TABLE public.servicio_detalle(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_servicio character varying,
+descripcion character varying,
+ancho double precision,
+largo double precision);
+ALTER TABLE ONLY public.servicio_detalle ADD CONSTRAINT servicio_detalles_pkey PRIMARY KEY (key);
+insert into public.servicio_detalle (key, key_usuario,estado, key_servicio, descripcion, ancho,largo) VALUES('1','alvarosiles',1, 'hab1','planta baja',4.50,5.00);
+insert into public.servicio_detalle (key, key_usuario,estado, key_servicio, descripcion, ancho,largo) VALUES('2','alvarosiles',1, 'hab2','piso 1',5.00,5.00);
+insert into public.servicio_detalle (key, key_usuario,estado, key_servicio, descripcion, ancho,largo) VALUES('3','alvarosiles',1, 'hab3','piso 2',6.00,5.00);
+
+
+CREATE TABLE public.cliente(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_inmueble character varying,
+ci character varying,
+nombres character varying,
+apellidos character varying,
+pais character varying,
+telefono character varying);
+ALTER TABLE ONLY public.cliente ADD CONSTRAINT clientes_pkey PRIMARY KEY (key);
+insert into public.cliente (key, key_usuario,estado, key_inmueble, ci, nombres, apellidos, pais, telefono) VALUES('1','alvarosiles',1,'1','7111111','juan','soliz soliz','bolivia ','65050500');
+insert into public.cliente (key, key_usuario,estado, key_inmueble, ci, nombres, apellidos, pais, telefono) VALUES('2','alvarosiles',1,'1','3111111','marcos','morales soliz','bolivia ','65050500');
+insert into public.cliente (key, key_usuario,estado, key_inmueble, ci, nombres, apellidos, pais, telefono) VALUES('3','alvarosiles',1,'1','4111111','sofia','mauro soliz','colombia','65050500');
+insert into public.cliente (key, key_usuario,estado, key_inmueble, ci, nombres, apellidos, pais, telefono) VALUES('4','alvarosiles',1,'1','6111111','marcelo','zambrana soliz','bolivia ','65050500');
+
+
+CREATE TABLE public.cliente_foto(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_cliente character varying,
+tipo_foto character varying);
+ALTER TABLE ONLY public.cliente_foto ADD CONSTRAINT cliente_fotos_pkey PRIMARY KEY (key);
+insert into public.cliente_foto (key, key_usuario,estado, key_cliente, tipo_foto) VALUES('1','alvarosiles',1,'1','frontal');
+insert into public.cliente_foto (key, key_usuario,estado, key_cliente, tipo_foto) VALUES('2','alvarosiles',1,'1','reverso');
+insert into public.cliente_foto (key, key_usuario,estado, key_cliente, tipo_foto) VALUES('3','alvarosiles',1,'2','frontal');
+insert into public.cliente_foto (key, key_usuario,estado, key_cliente, tipo_foto) VALUES('4','alvarosiles',1,'2','reverso');
+insert into public.cliente_foto (key, key_usuario,estado, key_cliente, tipo_foto) VALUES('5','alvarosiles',1,'3','frontal');
+insert into public.cliente_foto (key, key_usuario,estado, key_cliente, tipo_foto) VALUES('6','alvarosiles',1,'3','reverso');
+insert into public.cliente_foto (key, key_usuario,estado, key_cliente, tipo_foto) VALUES('7','alvarosiles',1,'5','frontal');
+insert into public.cliente_foto (key, key_usuario,estado, key_cliente, tipo_foto) VALUES('8','alvarosiles',1,'4','reverso');
+
+CREATE TABLE public.subordinado(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_cliente character varying,
+descripcion character varying,
+nombre_completo character varying,
+telefono character varying);
+ALTER TABLE ONLY public.subordinado ADD CONSTRAINT subordinados_pkey PRIMARY KEY (key);
+insert into public.subordinado (key, key_usuario,estado, key_cliente,descripcion ,nombre_completo ,telefono) VALUES('1','alvarosiles',1,'1','Padre','jaun perez','68420021');
+insert into public.subordinado (key, key_usuario,estado, key_cliente,descripcion ,nombre_completo ,telefono) VALUES('2','alvarosiles',1,'2','Padre','marcelo perez','68420021');
+insert into public.subordinado (key, key_usuario,estado, key_cliente,descripcion ,nombre_completo ,telefono) VALUES('3','alvarosiles',1,'3','Madre','Julia Mendoza','68420021');
+insert into public.subordinado (key, key_usuario,estado, key_cliente,descripcion ,nombre_completo ,telefono) VALUES('4','alvarosiles',1,'4','Padre','jaun perez','68420021');
+
+CREATE TABLE public.alquiler(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_inmueble character varying,
+key_cliente character varying,
+fecha_ingreso timestamp without time zone,
+fecha_salida timestamp without time zone,
+monto_total double precision,
+estado_alquiler integer);
+ALTER TABLE ONLY public.alquiler ADD CONSTRAINT alquilers_pkey PRIMARY KEY (key);
+insert into public.alquiler (key, key_usuario,estado, key_inmueble, key_cliente, fecha_ingreso, fecha_salida, monto_total, estado_alquiler) VALUES('key1','alvarosiles',1,'1','1','07/01/2022 1:000','07/01/2022 1:00',550.00,2);
+insert into public.alquiler (key, key_usuario,estado, key_inmueble, key_cliente, fecha_ingreso, fecha_salida, monto_total, estado_alquiler) VALUES('key2','alvarosiles',1,'1','2','07/01/2022 1:000','07/01/2022 1:00',550.00,2);
+insert into public.alquiler (key, key_usuario,estado, key_inmueble, key_cliente, fecha_ingreso, fecha_salida, monto_total, estado_alquiler) VALUES('key3','alvarosiles',1,'1','3','07/01/2022 1:000','07/01/2022 1:00',750.00,2);
+insert into public.alquiler (key, key_usuario,estado, key_inmueble, key_cliente, fecha_ingreso, fecha_salida, monto_total, estado_alquiler) VALUES('key4','alvarosiles',1,'1','4','07/01/2022 1:000','07/01/2022 1:00',550.00,2);
+
+
+CREATE TABLE public.alquiler_detalle(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_alquiler character varying,
+key_servicio character varying,
+cantidad integer,
+precio double precision,
+subtotal double precision);
+ALTER TABLE ONLY public.alquiler_detalle ADD CONSTRAINT alquiler_detalles_pkey PRIMARY KEY (key);
+insert into public.alquiler_detalle (key, key_usuario,estado, key_alquiler, key_servicio, cantidad, precio, subtotal ) VALUES('1','alvarosiles',1,'key1','hab1', 1, 500.00,500.00);
+insert into public.alquiler_detalle (key, key_usuario,estado, key_alquiler, key_servicio, cantidad, precio, subtotal ) VALUES('2','alvarosiles',1,'key1','serv03', 1, 50.00,50.00);
+insert into public.alquiler_detalle (key, key_usuario,estado, key_alquiler, key_servicio, cantidad, precio, subtotal ) VALUES('3','alvarosiles',1,'key2','hab2', 1, 500.00,500.00);
+insert into public.alquiler_detalle (key, key_usuario,estado, key_alquiler, key_servicio, cantidad, precio, subtotal ) VALUES('4','alvarosiles',1,'key2','serv03', 1, 50.00,50.00);
+insert into public.servicio_detalle (key, key_usuario,estado, key_alquiler, key_servicio, cantidad, precio, subtotal ) VALUES('5','alvarosiles',1,'key3','hab3', 1, 700.00,700.00);
+insert into public.servicio_detalle (key, key_usuario,estado, key_alquiler, key_servicio, cantidad, precio, subtotal ) VALUES('6','alvarosiles',1,'key3','serv03', 1, 50.00,50.00);
+insert into public.servicio_detalle (key, key_usuario,estado, key_alquiler, key_servicio, cantidad, precio, subtotal ) VALUES('7','alvarosiles',1,'key4','hab1', 1, 500.00,500.00);
+insert into public.servicio_detalle (key, key_usuario,estado, key_alquiler, key_servicio, cantidad, precio, subtotal ) VALUES('8','alvarosiles',1,'key4','serv03', 1, 50.00,50.00);
+
+CREATE TABLE public.pago(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_alquiler character varying,
+key_cliente character varying,
+fecha_pagado timestamp without time zone,
+monto_total double precision,
+estado_pago integer);
+ALTER TABLE ONLY public.pago ADD CONSTRAINT pagos_pkey PRIMARY KEY (key);
+insert into public.pago (key, key_usuario,estado,key_alquiler, key_cliente, fecha_pagado, monto_total, estado_pago) VALUES('1','alvarosiles',1,'key1','1', '07/01/2022 1:00',550.00,2);
+insert into public.pago (key, key_usuario,estado,key_alquiler, key_cliente, fecha_pagado, monto_total, estado_pago) VALUES('2','alvarosiles',1,'key2','2', '07/01/2022 1:00',550.00,2);
+insert into public.pago (key, key_usuario,estado,key_alquiler, key_cliente, fecha_pagado, monto_total, estado_pago) VALUES('3','alvarosiles',1,'key3','3', '07/01/2022 1:00',750.00,2);
+insert into public.pago (key, key_usuario,estado,key_alquiler, key_cliente, fecha_pagado, monto_total, estado_pago) VALUES('4','alvarosiles',1,'key4','4', '07/01/2022 1:00',550.00,2);
+
+CREATE TABLE public.pago_detalle(
+key character varying NOT NULL,
+key_usuario character varying,
+fecha_on timestamp without time zone,
+estado integer,
+key_pago character varying,
+descripcion character varying);
+ALTER TABLE ONLY public.pago_detalle ADD CONSTRAINT pago_detalles_pkey PRIMARY KEY (key);
+insert into public.pago_detalle (key, key_usuario,estado, key_pago,descripcion) VALUES('1','alvarosiles',1,'1','pagado');
+insert into public.pago_detalle (key, key_usuario,estado, key_pago,descripcion) VALUES('2','alvarosiles',1,'2','pagado');
+insert into public.pago_detalle (key, key_usuario,estado, key_pago,descripcion) VALUES('3','alvarosiles',1,'3','pagado');
+insert into public.pago_detalle (key, key_usuario,estado, key_pago,descripcion) VALUES('4','alvarosiles',1,'4','pagado');
+
+
+
+
+
+
