@@ -1,31 +1,19 @@
-# yoalquilo.com
-cuarto en alquiler
+# [yoAlquilo.com](alvarosiles11.github.io/yoAlquilo.com)
 
+- Modulo Departamento
+- Modulo Servicios
+- Modulo Ventas/Alquiler
+- Modulo Pagos
+- Modulo Compras
+- Modulo Kardex Editorial
+- Modulo de Caja
+- Copias de Seguridad
+- Modulo de Licencias y Seguridad
+- Modulo de Empresa
+- Modulo Reportes
 
-Modulo Ventas
-
-Modulo Compras
-
-Modulo Cobros
-
-Modulo Pagos
-
-Modulo Kardex
-
-Modulo Inventarios
-
-Modulo de Caja
-
-Modulo de Empresa
-
-Reportes
-
-Modulo de Mesas
-
-Copias de Seguridad
-
-Instaladores Portables con base de datos incluida
-
-Modulo de Licencias y Seguridad
-
-App android para recepción de pedidos
+<!-- - Modulo Inventarios
+- cuarto en alquiler
+- Modulo de Mesas
+* Instaladores Portables con base de datos incluida
+* App android para recepción de pedidos -->
